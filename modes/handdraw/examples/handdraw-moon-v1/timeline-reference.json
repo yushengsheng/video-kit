@@ -1,0 +1,231 @@
+{
+  "id": "HanddrawMoonV1",
+  "fps": 30,
+  "audio": "handdraw-moon-v1/audio/narration.mp3",
+  "audioLeadFrames": 20,
+  "audioDurationSeconds": 55.66,
+  "durationInFrames": 1727,
+  "durationSeconds": 57.56666666666667,
+  "scenes": [
+    {
+      "id": "discovery",
+      "from": 0,
+      "captions": [
+        {
+          "text": "一天晚上，小猴来到井边。",
+          "startFrame": 21,
+          "endFrame": 101
+        },
+        {
+          "text": "忽然看见，月亮掉进了水里。",
+          "startFrame": 115,
+          "endFrame": 195
+        }
+      ],
+      "durationInFrames": 209
+    },
+    {
+      "id": "rescue",
+      "from": 209,
+      "captions": [
+        {
+          "text": "它急得大喊：别怕，我来救你！",
+          "startFrame": 209,
+          "endFrame": 302
+        },
+        {
+          "text": "说完，转身找来一只木桶。",
+          "startFrame": 316,
+          "endFrame": 397
+        }
+      ],
+      "durationInFrames": 202
+    },
+    {
+      "id": "capture",
+      "from": 411,
+      "captions": [
+        {
+          "text": "它把桶慢慢放下去，轻轻一提。",
+          "startFrame": 411,
+          "endFrame": 507
+        },
+        {
+          "text": "月亮果然进了桶，小猴高兴坏了。",
+          "startFrame": 521,
+          "endFrame": 620
+        }
+      ],
+      "durationInFrames": 224
+    },
+    {
+      "id": "shattered",
+      "from": 635,
+      "captions": [
+        {
+          "text": "可刚走两步，水一晃，月亮就碎了。",
+          "startFrame": 635,
+          "endFrame": 741
+        },
+        {
+          "text": "它越着急，水晃得越厉害。",
+          "startFrame": 756,
+          "endFrame": 834
+        }
+      ],
+      "durationInFrames": 214
+    },
+    {
+      "id": "question",
+      "from": 849,
+      "captions": [
+        {
+          "text": "一只老猴走过来，没有帮它提桶。",
+          "startFrame": 849,
+          "endFrame": 937
+        },
+        {
+          "text": "只问：你有没有，抬头看一眼？",
+          "startFrame": 951,
+          "endFrame": 1041
+        }
+      ],
+      "durationInFrames": 206
+    },
+    {
+      "id": "look-up",
+      "from": 1055,
+      "captions": [
+        {
+          "text": "小猴抬起头，天上的月亮好好的。",
+          "startFrame": 1055,
+          "endFrame": 1151
+        },
+        {
+          "text": "井里和桶里的，都只是倒影。",
+          "startFrame": 1165,
+          "endFrame": 1247
+        }
+      ],
+      "durationInFrames": 206
+    },
+    {
+      "id": "still-water",
+      "from": 1261,
+      "captions": [
+        {
+          "text": "它放下木桶，等水面慢慢平静。",
+          "startFrame": 1261,
+          "endFrame": 1358
+        },
+        {
+          "text": "那轮圆月，又完整地出现了。",
+          "startFrame": 1372,
+          "endFrame": 1457
+        }
+      ],
+      "durationInFrames": 210
+    },
+    {
+      "id": "ending",
+      "from": 1471,
+      "captions": [
+        {
+          "text": "有时候，忙着解决问题之前，",
+          "startFrame": 1471,
+          "endFrame": 1558
+        },
+        {
+          "text": "先确认一下：问题，真的存在吗？",
+          "startFrame": 1562,
+          "endFrame": 1663
+        }
+      ],
+      "durationInFrames": 256
+    }
+  ],
+  "captions": [
+    {
+      "text": "一天晚上，小猴来到井边。",
+      "startFrame": 21,
+      "endFrame": 101
+    },
+    {
+      "text": "忽然看见，月亮掉进了水里。",
+      "startFrame": 115,
+      "endFrame": 195
+    },
+    {
+      "text": "它急得大喊：别怕，我来救你！",
+      "startFrame": 209,
+      "endFrame": 302
+    },
+    {
+      "text": "说完，转身找来一只木桶。",
+      "startFrame": 316,
+      "endFrame": 397
+    },
+    {
+      "text": "它把桶慢慢放下去，轻轻一提。",
+      "startFrame": 411,
+      "endFrame": 507
+    },
+    {
+      "text": "月亮果然进了桶，小猴高兴坏了。",
+      "startFrame": 521,
+      "endFrame": 620
+    },
+    {
+      "text": "可刚走两步，水一晃，月亮就碎了。",
+      "startFrame": 635,
+      "endFrame": 741
+    },
+    {
+      "text": "它越着急，水晃得越厉害。",
+      "startFrame": 756,
+      "endFrame": 834
+    },
+    {
+      "text": "一只老猴走过来，没有帮它提桶。",
+      "startFrame": 849,
+      "endFrame": 937
+    },
+    {
+      "text": "只问：你有没有，抬头看一眼？",
+      "startFrame": 951,
+      "endFrame": 1041
+    },
+    {
+      "text": "小猴抬起头，天上的月亮好好的。",
+      "startFrame": 1055,
+      "endFrame": 1151
+    },
+    {
+      "text": "井里和桶里的，都只是倒影。",
+      "startFrame": 1165,
+      "endFrame": 1247
+    },
+    {
+      "text": "它放下木桶，等水面慢慢平静。",
+      "startFrame": 1261,
+      "endFrame": 1358
+    },
+    {
+      "text": "那轮圆月，又完整地出现了。",
+      "startFrame": 1372,
+      "endFrame": 1457
+    },
+    {
+      "text": "有时候，忙着解决问题之前，",
+      "startFrame": 1471,
+      "endFrame": 1558
+    },
+    {
+      "text": "先确认一下：问题，真的存在吗？",
+      "startFrame": 1562,
+      "endFrame": 1663
+    }
+  ],
+  "scriptSignature": "f326035a093eda4fcbc306cd19991fbd93ba76af1356ebf7de032a0942fdc5d7",
+  "audioSha256": "91d0e03b3b8e04281d758416f13a0299b8eda8d4f5cff47c0c96e85e9b367e33"
+}

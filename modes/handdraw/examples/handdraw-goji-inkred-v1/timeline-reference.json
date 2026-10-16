@@ -1,0 +1,214 @@
+{
+  "id": "HanddrawGojiInkredV1",
+  "fps": 30,
+  "audio": "handdraw-goji-inkred-v1/audio/narration.mp3",
+  "audioLeadFrames": 20,
+  "audioDurationSeconds": 50.06,
+  "durationInFrames": 1559,
+  "durationSeconds": 51.96666666666667,
+  "scenes": [
+    {
+      "id": "night",
+      "from": 0,
+      "captions": [
+        {
+          "text": "熬最深的夜，揉最酸的眼。",
+          "startFrame": 21,
+          "endFrame": 91
+        },
+        {
+          "text": "日子久了，是不是觉得整个人像褪了色，提不起精神？",
+          "startFrame": 102,
+          "endFrame": 233
+        }
+      ],
+      "durationInFrames": 244
+    },
+    {
+      "id": "red-twig",
+      "from": 244,
+      "captions": [
+        {
+          "text": "给忙碌的日常，添一抹红吧。",
+          "startFrame": 244,
+          "endFrame": 317
+        },
+        {
+          "text": "从传统食养，到今天的餐桌，枸杞一直是熟悉的食材。",
+          "startFrame": 328,
+          "endFrame": 467
+        },
+        {
+          "text": "它含有枸杞多糖和类胡萝卜素。",
+          "startFrame": 478,
+          "endFrame": 557
+        }
+      ],
+      "durationInFrames": 324
+    },
+    {
+      "id": "detail",
+      "from": 568,
+      "captions": [
+        {
+          "text": "但挑选真材实料，不能只看果蒂的小白点。",
+          "startFrame": 568,
+          "endFrame": 669
+        },
+        {
+          "text": "单凭外观，可判断不了是不是无硫。",
+          "startFrame": 680,
+          "endFrame": 768
+        }
+      ],
+      "durationInFrames": 211
+    },
+    {
+      "id": "handfall",
+      "from": 779,
+      "captions": [
+        {
+          "text": "留意果粒是否干爽，有没有异味。",
+          "startFrame": 779,
+          "endFrame": 858
+        },
+        {
+          "text": "也看看包装标签和检测信息。",
+          "startFrame": 869,
+          "endFrame": 942
+        }
+      ],
+      "durationInFrames": 174
+    },
+    {
+      "id": "tea",
+      "from": 953,
+      "captions": [
+        {
+          "text": "放进杯里，添上温水。",
+          "startFrame": 953,
+          "endFrame": 1012
+        },
+        {
+          "text": "看红果慢慢舒展，茶汤渐渐染上一点暖色。",
+          "startFrame": 1023,
+          "endFrame": 1137
+        }
+      ],
+      "durationInFrames": 195
+    },
+    {
+      "id": "pause",
+      "from": 1148,
+      "captions": [
+        {
+          "text": "食用按包装说明，别忘了让眼睛休息。",
+          "startFrame": 1148,
+          "endFrame": 1252
+        },
+        {
+          "text": "日常食养，也要配上规律作息。",
+          "startFrame": 1263,
+          "endFrame": 1339
+        }
+      ],
+      "durationInFrames": 202
+    },
+    {
+      "id": "ending",
+      "from": 1350,
+      "captions": [
+        {
+          "text": "挑选适合自己的好枸杞。",
+          "startFrame": 1350,
+          "endFrame": 1408
+        },
+        {
+          "text": "给平凡的生活，添一抹温暖的红。",
+          "startFrame": 1419,
+          "endFrame": 1500
+        }
+      ],
+      "durationInFrames": 209
+    }
+  ],
+  "captions": [
+    {
+      "text": "熬最深的夜，揉最酸的眼。",
+      "startFrame": 21,
+      "endFrame": 91
+    },
+    {
+      "text": "日子久了，是不是觉得整个人像褪了色，提不起精神？",
+      "startFrame": 102,
+      "endFrame": 233
+    },
+    {
+      "text": "给忙碌的日常，添一抹红吧。",
+      "startFrame": 244,
+      "endFrame": 317
+    },
+    {
+      "text": "从传统食养，到今天的餐桌，枸杞一直是熟悉的食材。",
+      "startFrame": 328,
+      "endFrame": 467
+    },
+    {
+      "text": "它含有枸杞多糖和类胡萝卜素。",
+      "startFrame": 478,
+      "endFrame": 557
+    },
+    {
+      "text": "但挑选真材实料，不能只看果蒂的小白点。",
+      "startFrame": 568,
+      "endFrame": 669
+    },
+    {
+      "text": "单凭外观，可判断不了是不是无硫。",
+      "startFrame": 680,
+      "endFrame": 768
+    },
+    {
+      "text": "留意果粒是否干爽，有没有异味。",
+      "startFrame": 779,
+      "endFrame": 858
+    },
+    {
+      "text": "也看看包装标签和检测信息。",
+      "startFrame": 869,
+      "endFrame": 942
+    },
+    {
+      "text": "放进杯里，添上温水。",
+      "startFrame": 953,
+      "endFrame": 1012
+    },
+    {
+      "text": "看红果慢慢舒展，茶汤渐渐染上一点暖色。",
+      "startFrame": 1023,
+      "endFrame": 1137
+    },
+    {
+      "text": "食用按包装说明，别忘了让眼睛休息。",
+      "startFrame": 1148,
+      "endFrame": 1252
+    },
+    {
+      "text": "日常食养，也要配上规律作息。",
+      "startFrame": 1263,
+      "endFrame": 1339
+    },
+    {
+      "text": "挑选适合自己的好枸杞。",
+      "startFrame": 1350,
+      "endFrame": 1408
+    },
+    {
+      "text": "给平凡的生活，添一抹温暖的红。",
+      "startFrame": 1419,
+      "endFrame": 1500
+    }
+  ],
+  "scriptSignature": "b40d79823c8dc7c2e8a3279b50015155e623f6d8b70b5f4cb81f506028eddecb",
+  "audioSha256": "278c742bd1af3285e94c971a74bba00920aad78ec53810b67ad0fd62144859da"
+}

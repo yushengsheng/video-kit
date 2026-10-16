@@ -1,0 +1,84 @@
+{
+  "id": "HanddrawMoonV1",
+  "title": "井里的月亮",
+  "version": 1,
+  "status": "example_requires_local_assets_and_narration",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "source": "根据传统猴子捞月母题重新创作的寓言，不作为真实事件。",
+  "art": "原创矢量墨线与淡彩插画；真实路径描绘、局部填色、笔尖跟随。",
+  "voice": {
+    "name": "zh-CN-XiaoyiNeural",
+    "rate": "-12%",
+    "pitch": "+0Hz",
+    "provider": "Microsoft Edge online TTS",
+    "subjectiveListening": "not_verified"
+  },
+  "scenes": [
+    {
+      "id": "discovery",
+      "description": "夜色中的井边，小猴弯腰看见水中圆月。",
+      "captions": [
+        "一天晚上，小猴来到井边。",
+        "忽然看见，月亮掉进了水里。"
+      ]
+    },
+    {
+      "id": "rescue",
+      "description": "小猴惊慌地跑去取木桶，准备救月亮。",
+      "captions": [
+        "它急得大喊：别怕，我来救你！",
+        "说完，转身找来一只木桶。"
+      ]
+    },
+    {
+      "id": "capture",
+      "description": "俯视井口，绳子把木桶放到水面，桶中映出月亮。",
+      "captions": [
+        "它把桶慢慢放下去，轻轻一提。",
+        "月亮果然进了桶，小猴高兴坏了。"
+      ]
+    },
+    {
+      "id": "shattered",
+      "description": "小猴提着木桶，水面晃动，月亮倒影变成破碎光斑。",
+      "captions": [
+        "可刚走两步，水一晃，月亮就碎了。",
+        "它越着急，水晃得越厉害。"
+      ]
+    },
+    {
+      "id": "question",
+      "description": "老猴走到小猴身边，抬手指向天空。",
+      "captions": [
+        "一只老猴走过来，没有帮它提桶。",
+        "只问：你有没有，抬头看一眼？"
+      ]
+    },
+    {
+      "id": "look-up",
+      "description": "拉开为仰望天空的全景，圆月仍在树梢上。",
+      "captions": [
+        "小猴抬起头，天上的月亮好好的。",
+        "井里和桶里的，都只是倒影。"
+      ]
+    },
+    {
+      "id": "still-water",
+      "description": "木桶放在地上，水面恢复平静，完整圆月重新出现。",
+      "captions": [
+        "它放下木桶，等水面慢慢平静。",
+        "那轮圆月，又完整地出现了。"
+      ]
+    },
+    {
+      "id": "ending",
+      "description": "树下小猴安静仰望，井水与天上的圆月相互呼应。",
+      "captions": [
+        "有时候，忙着解决问题之前，",
+        "先确认一下：问题，真的存在吗？"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "source": "OFL-NotoSerifSC.txt",
+    "destination": "fonts/OFL.txt"
+  },
+  {
+    "source": "OFL-MaShanZheng.txt",
+    "destination": "handdraw-goji-inkred-v1/fonts/OFL-MaShanZheng.txt"
+  },
+  {
+    "source": "MIT-drawing-hand.txt",
+    "destination": "handdraw-moon-v1/drawing-hand-LICENSE.txt"
+  }
+]

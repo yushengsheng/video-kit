@@ -1,0 +1,18 @@
+{
+  "handdraw": {
+    "name": "淡彩墨线手绘",
+    "version": "1.0.0",
+    "directory": "modes/handdraw",
+    "examples": [
+      "moon",
+      "goji",
+      "comic",
+      "inkred"
+    ],
+    "tested_platform": "macOS / Apple Silicon",
+    "requires_gpt_model_api": false,
+    "cli": "scripts/cli.py",
+    "python_environment": ".cache/moon-tools-venv",
+    "requirements": "requirements-moon-tools.txt"
+  }
+}

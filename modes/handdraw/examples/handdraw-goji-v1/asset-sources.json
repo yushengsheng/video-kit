@@ -1,0 +1,14 @@
+{
+  "art": "Original code illustration: scripts/create_goji_art.py. Not AI image generation.",
+  "music": "Original synthesized pentatonic plucks and foley: scripts/create_goji_art.py. No third-party music.",
+  "hand": {
+    "source": "https://github.com/threerocks/sweety-handdraw-video",
+    "commit": "5206ec0d17f9b353e400b64b9c51ad69e721e02a",
+    "asset": "teacher-pen.png",
+    "sha256": "2c035a0c900589f8650fed9fe6b863773e4496a3c1bb389dcb7dc35501bd1dd5",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2026 threerocks"
+  },
+  "font": "Noto Serif SC, SIL Open Font License; public/fonts/OFL.txt",
+  "product": "Illustrated generic packaging. No real product photo, brand, laboratory certificate or farm ownership represented."
+}

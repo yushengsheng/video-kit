@@ -1,0 +1,279 @@
+{
+  "id": "HanddrawGojiV1",
+  "fps": 30,
+  "audio": "handdraw-goji-v1/audio/narration.mp3",
+  "audioLeadFrames": 20,
+  "audioDurationSeconds": 54.17,
+  "durationInFrames": 1683,
+  "durationSeconds": 56.1,
+  "scenes": [
+    {
+      "id": "question",
+      "from": 0,
+      "captions": [
+        {
+          "text": "为什么天天泡枸杞，却不一定选对了？",
+          "startFrame": 21,
+          "endFrame": 116
+        },
+        {
+          "text": "颜色越鲜亮，品质就越好吗？",
+          "startFrame": 128,
+          "endFrame": 204
+        }
+      ],
+      "durationInFrames": 216
+    },
+    {
+      "id": "inspect",
+      "from": 216,
+      "captions": [
+        {
+          "text": "选枸杞，别只看颜值。",
+          "startFrame": 216,
+          "endFrame": 284
+        },
+        {
+          "text": "记住这三个选购要点。",
+          "startFrame": 296,
+          "endFrame": 349
+        }
+      ],
+      "durationInFrames": 145
+    },
+    {
+      "id": "look",
+      "from": 361,
+      "captions": [
+        {
+          "text": "一看外观，颜色自然，颗粒饱满。",
+          "startFrame": 361,
+          "endFrame": 457
+        }
+      ],
+      "durationInFrames": 108
+    },
+    {
+      "id": "smell",
+      "from": 469,
+      "captions": [
+        {
+          "text": "二闻气味，避开刺鼻异味。",
+          "startFrame": 469,
+          "endFrame": 541
+        }
+      ],
+      "durationInFrames": 84
+    },
+    {
+      "id": "touch",
+      "from": 553,
+      "captions": [
+        {
+          "text": "三摸手感，干爽，不明显粘手。",
+          "startFrame": 553,
+          "endFrame": 640
+        }
+      ],
+      "durationInFrames": 99
+    },
+    {
+      "id": "water",
+      "from": 652,
+      "captions": [
+        {
+          "text": "果蒂白点、泡水浮沉，",
+          "startFrame": 652,
+          "endFrame": 717
+        },
+        {
+          "text": "不能单独判断有没有硫熏。",
+          "startFrame": 720,
+          "endFrame": 786
+        }
+      ],
+      "durationInFrames": 146
+    },
+    {
+      "id": "orchard",
+      "from": 798,
+      "captions": [
+        {
+          "text": "从枝头采摘，到摊晒、筛选，",
+          "startFrame": 798,
+          "endFrame": 887
+        }
+      ],
+      "durationInFrames": 92
+    },
+    {
+      "id": "drying",
+      "from": 890,
+      "captions": [
+        {
+          "text": "认真挑去瘪果、碎果，",
+          "startFrame": 890,
+          "endFrame": 953
+        }
+      ],
+      "durationInFrames": 63
+    },
+    {
+      "id": "sieve",
+      "from": 953,
+      "captions": [
+        {
+          "text": "才留得下饱满的好果。",
+          "startFrame": 953,
+          "endFrame": 1005
+        }
+      ],
+      "durationInFrames": 64
+    },
+    {
+      "id": "label",
+      "from": 1017,
+      "captions": [
+        {
+          "text": "再看看产地、生产日期和检测信息，",
+          "startFrame": 1017,
+          "endFrame": 1126
+        },
+        {
+          "text": "品质才更有依据。",
+          "startFrame": 1128,
+          "endFrame": 1175
+        }
+      ],
+      "durationInFrames": 170
+    },
+    {
+      "id": "family",
+      "from": 1187,
+      "captions": [
+        {
+          "text": "传统中医用枸杞滋补肝肾、益精明目。",
+          "startFrame": 1187,
+          "endFrame": 1297
+        },
+        {
+          "text": "日常泡茶、煲汤，或少量干嚼，",
+          "startFrame": 1309,
+          "endFrame": 1399
+        }
+      ],
+      "durationInFrames": 214
+    },
+    {
+      "id": "ending",
+      "from": 1401,
+      "captions": [
+        {
+          "text": "尝一口清甜，留一份家常温暖。",
+          "startFrame": 1401,
+          "endFrame": 1485
+        },
+        {
+          "text": "认真挑选，适量食用，才是长久的日常滋养。",
+          "startFrame": 1497,
+          "endFrame": 1622
+        }
+      ],
+      "durationInFrames": 282
+    }
+  ],
+  "captions": [
+    {
+      "text": "为什么天天泡枸杞，却不一定选对了？",
+      "startFrame": 21,
+      "endFrame": 116
+    },
+    {
+      "text": "颜色越鲜亮，品质就越好吗？",
+      "startFrame": 128,
+      "endFrame": 204
+    },
+    {
+      "text": "选枸杞，别只看颜值。",
+      "startFrame": 216,
+      "endFrame": 284
+    },
+    {
+      "text": "记住这三个选购要点。",
+      "startFrame": 296,
+      "endFrame": 349
+    },
+    {
+      "text": "一看外观，颜色自然，颗粒饱满。",
+      "startFrame": 361,
+      "endFrame": 457
+    },
+    {
+      "text": "二闻气味，避开刺鼻异味。",
+      "startFrame": 469,
+      "endFrame": 541
+    },
+    {
+      "text": "三摸手感，干爽，不明显粘手。",
+      "startFrame": 553,
+      "endFrame": 640
+    },
+    {
+      "text": "果蒂白点、泡水浮沉，",
+      "startFrame": 652,
+      "endFrame": 717
+    },
+    {
+      "text": "不能单独判断有没有硫熏。",
+      "startFrame": 720,
+      "endFrame": 786
+    },
+    {
+      "text": "从枝头采摘，到摊晒、筛选，",
+      "startFrame": 798,
+      "endFrame": 887
+    },
+    {
+      "text": "认真挑去瘪果、碎果，",
+      "startFrame": 890,
+      "endFrame": 953
+    },
+    {
+      "text": "才留得下饱满的好果。",
+      "startFrame": 953,
+      "endFrame": 1005
+    },
+    {
+      "text": "再看看产地、生产日期和检测信息，",
+      "startFrame": 1017,
+      "endFrame": 1126
+    },
+    {
+      "text": "品质才更有依据。",
+      "startFrame": 1128,
+      "endFrame": 1175
+    },
+    {
+      "text": "传统中医用枸杞滋补肝肾、益精明目。",
+      "startFrame": 1187,
+      "endFrame": 1297
+    },
+    {
+      "text": "日常泡茶、煲汤，或少量干嚼，",
+      "startFrame": 1309,
+      "endFrame": 1399
+    },
+    {
+      "text": "尝一口清甜，留一份家常温暖。",
+      "startFrame": 1401,
+      "endFrame": 1485
+    },
+    {
+      "text": "认真挑选，适量食用，才是长久的日常滋养。",
+      "startFrame": 1497,
+      "endFrame": 1622
+    }
+  ],
+  "scriptSignature": "f95a341897c37ff329a092e3d8f2dbb306274092f05f5d0b32bb387e1423c192",
+  "audioSha256": "ccc0de1ae748e81917b7a2490dfa09cd11dd46d55756141572778da8ea7bde96"
+}

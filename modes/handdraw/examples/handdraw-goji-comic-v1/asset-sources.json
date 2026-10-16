@@ -1,0 +1,15 @@
+{
+  "art": "Original comic artwork authored in scripts/create_goji_comic_art.py, using local path and prop primitives from scripts/create_goji_art.py and create_moon_art.py.",
+  "music_and_foley": "Original synthesized music and foley in scripts/create_goji_comic_art.py; no third-party music recordings.",
+  "hand": {
+    "source": "https://github.com/threerocks/sweety-handdraw-video",
+    "commit": "5206ec0d17f9b353e400b64b9c51ad69e721e02a",
+    "asset": "teacher-pen.png",
+    "sha256": "2c035a0c900589f8650fed9fe6b863773e4496a3c1bb389dcb7dc35501bd1dd5",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2026 threerocks"
+  },
+  "font": "Noto Serif SC, SIL Open Font License; public/fonts/OFL.txt",
+  "product": "Generic illustrated packaging; no real brand, provenance, price, preparation qualification or test report is represented.",
+  "characters": "Original adult office worker and anthropomorphic red goji superhero; no existing franchise character copied."
+}

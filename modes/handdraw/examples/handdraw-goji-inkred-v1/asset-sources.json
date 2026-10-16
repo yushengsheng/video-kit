@@ -1,0 +1,29 @@
+{
+  "art": "Original editable black ink and selective-red SVG paths in scripts/create_goji_inkred_art.py, using the existing local Painting / Art coordinate primitives; no image or video model.",
+  "tools": "Original vector dip pen and brush drawn in src/handdraw-goji-inkred-v1/Video.tsx; no third-party hand image used in this episode.",
+  "paper": "Existing original procedural warm-white paper texture from public/handdraw-moon-v1/paper.jpg.",
+  "foley": "Original procedural scratch, brush wash, breath texture, fruit tick, pouring water, chime and pen-finish sounds. No third-party recordings or background music. Not a real recorded human sigh.",
+  "narration": {
+    "provider": "Microsoft Edge online TTS",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+5%",
+    "pitch": "+0Hz",
+    "method": "one continuous generation; captions tied to returned word timing",
+    "subjective_listening": "not_performed"
+  },
+  "handwritten_font": {
+    "name": "Ma Shan Zheng",
+    "source": "https://github.com/google/fonts/tree/main/ofl/mashanzheng",
+    "asset_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/mashanzheng/MaShanZheng-Regular.ttf",
+    "sha256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb",
+    "license": "SIL Open Font License 1.1",
+    "license_file": "public/handdraw-goji-inkred-v1/fonts/OFL-MaShanZheng.txt"
+  },
+  "caption_font": {
+    "name": "Noto Serif SC",
+    "license": "SIL Open Font License",
+    "license_file": "public/fonts/OFL.txt"
+  },
+  "product": "Generic original illustrated packaging. No real brand, origin, harvest, sulphur status, ready-to-eat certification, price or commercial quality verified.",
+  "health": "Food ingredient and daily-life presentation, not a prescription or guarantee to improve dry eyes or cancel sleep deprivation."
+}

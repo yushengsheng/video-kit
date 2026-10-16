@@ -1,0 +1,211 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "HanddrawLoadStory",
+      "pos": [
+        80,
+        220
+      ],
+      "size": [
+        430,
+        170
+      ],
+      "order": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "文案与画面",
+          "type": "HANDDRAW_SOURCE",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        "${HANDDRAW_ROOT}",
+        "content/handdraw-moon-v1/story.json",
+        "content/handdraw-moon-v1/art.json"
+      ],
+      "flags": {},
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "HanddrawLoadStory"
+      }
+    },
+    {
+      "id": 2,
+      "type": "HanddrawNarration",
+      "pos": [
+        550,
+        220
+      ],
+      "size": [
+        330,
+        130
+      ],
+      "order": 1,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "HANDDRAW_SOURCE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "含配音字幕的任务",
+          "type": "HANDDRAW_JOB",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        "缺失时生成配音（联网）"
+      ],
+      "flags": {},
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "HanddrawNarration"
+      }
+    },
+    {
+      "id": 3,
+      "type": "HanddrawRender",
+      "pos": [
+        920,
+        220
+      ],
+      "size": [
+        440,
+        410
+      ],
+      "order": 2,
+      "inputs": [
+        {
+          "name": "job",
+          "type": "HANDDRAW_JOB",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "已导出视频",
+          "type": "HANDDRAW_RENDER",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        "首镜预览",
+        "720p"
+      ],
+      "flags": {},
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "HanddrawRender"
+      }
+    },
+    {
+      "id": 4,
+      "type": "HanddrawVerify",
+      "pos": [
+        1400,
+        220
+      ],
+      "size": [
+        440,
+        270
+      ],
+      "order": 3,
+      "inputs": [
+        {
+          "name": "render",
+          "type": "HANDDRAW_RENDER",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "检查报告",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "widgets_values": [],
+      "flags": {},
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "HanddrawVerify"
+      }
+    },
+    {
+      "id": 5,
+      "type": "Note",
+      "pos": [
+        80,
+        20
+      ],
+      "size": [
+        800,
+        160
+      ],
+      "order": 4,
+      "inputs": [],
+      "outputs": [],
+      "widgets_values": [
+        "手绘故事 v1｜文案与画面 → 配音/字幕 → Remotion 渲染 → 技术检查\n首次需生成旁白（联网）；匹配缓存可离线复用，无需本地大模型。\n先运行短预览，再打开完整导出。新故事需要匹配的 story.json 和 art.json；只换文案不会自动重画场景。\n改文案或音色后，选择“缺失时生成配音（联网）”。ComfyUI/output/handdraw 下保存视频、字幕和报告。"
+      ],
+      "flags": {},
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "Note"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "HANDDRAW_SOURCE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "HANDDRAW_JOB"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "HANDDRAW_RENDER"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.75,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

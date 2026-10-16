@@ -1,0 +1,138 @@
+{
+  "id": "handdraw-story-code-v1",
+  "version": 1,
+  "updated_on": "2026-10-16",
+  "scope": "通用代码手绘故事；不覆盖中药系列专属人物、声音和内容要求",
+  "selection": "已恢复《井里的月亮》的代码淡彩墨线手绘流程；本期明确要求优先于默认值",
+  "consumption": {
+    "mode": "assistant_read_before_creation",
+    "runtime_auto_load": false,
+    "note": "桌面助手读取后落实到本期文案、绘制代码与任务参数；不是渲染器配置接口"
+  },
+  "entry": {
+    "required_user_input": "文案",
+    "assistant_prepares": [
+      "分镜",
+      "原创绘制代码",
+      "矢量画面",
+      "配音",
+      "时码",
+      "字幕",
+      "合成任务",
+      "成片",
+      "检查记录"
+    ],
+    "gpt_model_api": false,
+    "gpt_image_tool_required": false,
+    "repeat_style_questions": false
+  },
+  "story": {
+    "target_seconds": 60,
+    "duration_policy": "服从文案与实际旁白，不强行拉伸或删改已定稿内容；镜数随文案调整",
+    "sentences_per_scene": [
+      1,
+      2
+    ],
+    "scene_policy": "每镜绘制对应口播的具体情境；角色道具一致；先画主角或本镜重点",
+    "reuse_policy": "可复用造型原语，不用猴子旧画面代替新故事，不做长时间同底图文字卡"
+  },
+  "visual": {
+    "medium": "原创代码 SVG 矢量路径／TypeScript、React、Remotion",
+    "user_reference": "《井里的月亮》手绘故事 v1",
+    "style": "淡彩墨线手绘、暖白纸张质感",
+    "art_direction": [
+      "暖白纸面和轻微纸张纹理，不强调复杂满幅电影背景",
+      "清晰柔和的棕色墨线、少量淡彩，轮廓适合逐笔描绘",
+      "主角和关键道具优先呈现，每镜对应一个具体情境",
+      "简洁构图和适当留白，让描线、局部填色与笔尖跟随清楚可见",
+      "角色与道具保持一致，不做大块知识卡或 PPT"
+    ],
+    "palette_direction": {
+      "ink": "#655044",
+      "warm_brown": "#bd8757",
+      "cream": "#f0d4a0",
+      "gray_blue": "#8aa8b8",
+      "paper": "#f9f6ec",
+      "caption": "#463e35"
+    },
+    "palette_policy": "默认沿用原片暖棕、奶油和灰蓝淡彩，按本期道具与情境少量调整，不为新故事复用无关旧画面",
+    "composition": "简洁情境插画、主次清楚、适当留白与底部字幕安全区；按需分层，不强制复杂前中远景",
+    "motion": [
+      "实际路径逐笔描线",
+      "局部遮罩填色",
+      "笔尖跟随",
+      "自然切镜"
+    ],
+    "optional_motion": "按分镜需要做叶片、袖口、呼吸等小幅分层运动，不默认添加复杂口型",
+    "limits": "默认恢复原片手绘方向，不增加电影式复杂背景或完整人物表演；静图推拉不是完整人物动画",
+    "acceptance": "用户明确要求恢复原手绘方向；原片画面与合成技术已实际验证，不代表音色和未来成片均已获审美验收",
+    "font_file": "public/fonts/NotoSerifSC-Regular.ttf",
+    "drawing_hand_file": "public/handdraw-moon-v1/drawing-hand.png",
+    "drawing_hand_license_file": "public/handdraw-moon-v1/drawing-hand-LICENSE.txt",
+    "paper_file": "public/handdraw-moon-v1/paper.jpg"
+  },
+  "voice": {
+    "provider": "Microsoft Edge online TTS",
+    "name": "zh-CN-XiaoyiNeural",
+    "rate": "-12%",
+    "pitch": "+0Hz",
+    "generation": "整篇连续生成，使用返回的逐词时码安排字幕",
+    "new_audio_requires_network": true,
+    "cached_audio_policy": "文案、声音参数与音频身份匹配才复用；缺失时生成，不悄悄沿用旧稿声音",
+    "subjective_acceptance": "未记录人工连续播放或逐字听验；可用默认音色不代表音色审美已获认可",
+    "background_music": false
+  },
+  "captions": {
+    "font_size_px_at_1080p": 40,
+    "bottom_px_at_1080p": 67,
+    "align": "center",
+    "large_background_panel": false,
+    "contrast_policy": "按本期背景选清晰文字与轻阴影，不照搬旧片深字到深色背景",
+    "timing": "服从实际旁白时码"
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pixel_format": "yuv420p",
+    "crf": 18,
+    "concurrency": 2,
+    "preview": "720p 首镜，内部检查后导出全片",
+    "final": "1080p 完整 MP4",
+    "backend": "Remotion；可由本机 ComfyUI 四节点调度"
+  },
+  "quality": {
+    "technical_checks": [
+      "输入文件哈希",
+      "完整解码",
+      "H.264/AAC",
+      "帧数与时长",
+      "音轨身份与未截断",
+      "字幕文字与时码"
+    ],
+    "visual_checks": [
+      "代表镜头预览",
+      "口播与画面语义对应",
+      "绘制与填色阶段抽帧",
+      "最终编码画面"
+    ],
+    "record_only_performed_checks": true,
+    "preserve_previous_versions": true
+  },
+  "references": {
+    "workflow_doc": "README.md",
+    "reference_story": "examples/handdraw-moon-v1/story.json",
+    "reference_art": "scripts/create_moon_art.py",
+    "reference_art_script": "scripts/create_moon_art.py",
+    "narration_script": "scripts/create_moon_voice.py",
+    "job_script": "scripts/handdraw_job.py",
+    "render_script": "scripts/render-handdraw-job.mjs"
+  },
+  "provenance": {
+    "reference_film_seconds": 57.579,
+    "validated_capability": "桌面助手创作淡彩墨线矢量画面，逐笔描线与局部填色，加旁白字幕和本地后端导出",
+    "not_a_capability": "纯 ComfyUI 节点从任意文案自动理解并绘制新故事"
+  }
+}

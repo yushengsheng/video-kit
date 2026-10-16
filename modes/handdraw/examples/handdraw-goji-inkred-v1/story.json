@@ -1,0 +1,90 @@
+{
+  "id": "HanddrawGojiInkredV1",
+  "title": "给生活，添一抹红",
+  "version": 1,
+  "status": "example_requires_local_assets_and_narration",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "voice": {
+    "name": "zh-CN-XiaoyiNeural",
+    "rate": "+5%",
+    "pitch": "+0Hz",
+    "provider": "Microsoft Edge online TTS",
+    "subjectiveListening": "not_verified"
+  },
+  "source": "用户提供五段52秒手绘广告分镜；保留黑白、点红、淡黄的视觉逻辑，修订未获支持的商品与健康表述。",
+  "scenes": [
+    {
+      "id": "night",
+      "phase": "墨线起笔",
+      "headline": "熬最深的夜，揉最酸的眼",
+      "note": "该休息一下了",
+      "captions": [
+        "熬最深的夜，揉最酸的眼。",
+        "日子久了，是不是觉得整个人像褪了色，提不起精神？"
+      ]
+    },
+    {
+      "id": "red-twig",
+      "phase": "一抹点红",
+      "headline": "给忙碌的日常，添一抹红",
+      "note": "红枸杞 · 日常食材",
+      "captions": [
+        "给忙碌的日常，添一抹红吧。",
+        "从传统食养，到今天的餐桌，枸杞一直是熟悉的食材。",
+        "它含有枸杞多糖和类胡萝卜素。"
+      ]
+    },
+    {
+      "id": "detail",
+      "phase": "细节描摹",
+      "headline": "认真挑选，不只看一个白点",
+      "note": "外观不能代替检测",
+      "captions": [
+        "但挑选真材实料，不能只看果蒂的小白点。",
+        "单凭外观，可判断不了是不是无硫。"
+      ]
+    },
+    {
+      "id": "handfall",
+      "phase": "细节描摹",
+      "headline": "看外观，也看标签与检测信息",
+      "note": "干爽无异味 · 留意标签",
+      "captions": [
+        "留意果粒是否干爽，有没有异味。",
+        "也看看包装标签和检测信息。"
+      ]
+    },
+    {
+      "id": "tea",
+      "phase": "淡彩晕染",
+      "headline": "红果舒展，茶汤添一分暖",
+      "note": "浮沉不作为品质判定",
+      "captions": [
+        "放进杯里，添上温水。",
+        "看红果慢慢舒展，茶汤渐渐染上一点暖色。"
+      ]
+    },
+    {
+      "id": "pause",
+      "phase": "淡彩晕染",
+      "headline": "日常食养，好好休息",
+      "note": "食用按说明 · 作息要规律",
+      "captions": [
+        "食用按包装说明，别忘了让眼睛休息。",
+        "日常食养，也要配上规律作息。"
+      ]
+    },
+    {
+      "id": "ending",
+      "phase": "落笔定格",
+      "headline": "给生活，添一抹温暖的红",
+      "note": "认真挑选 · 慢慢品味",
+      "captions": [
+        "挑选适合自己的好枸杞。",
+        "给平凡的生活，添一抹温暖的红。"
+      ]
+    }
+  ]
+}

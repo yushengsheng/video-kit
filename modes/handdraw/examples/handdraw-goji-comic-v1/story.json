@@ -1,0 +1,121 @@
+{
+  "id": "HanddrawGojiComicV1",
+  "title": "打工人的枸杞小搭档",
+  "version": 1,
+  "status": "example_requires_local_assets_and_narration",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "source": "用户第二版广告漫画稿。保留叙事结构与角色创意，修订未经支持的成分、疗效和商品属性声明。",
+  "voice": {
+    "name": "zh-CN-XiaoyiNeural",
+    "rate": "-6%",
+    "pitch": "+0Hz",
+    "provider": "Microsoft Edge online TTS",
+    "subjectiveListening": "not_verified"
+  },
+  "scenes": [
+    {
+      "id": "screen",
+      "eyebrow": "打工人的日常",
+      "headline": "屏幕眼 · 电量告急",
+      "description": "成年女性职员盯电脑，眼中蓝色格网，头顶10%红色电量闪烁。",
+      "captions": [
+        "每天盯屏幕十几个小时，",
+        "眼睛干涩发酸，身体像没电一样？"
+      ]
+    },
+    {
+      "id": "hero",
+      "eyebrow": "你的日常小搭档",
+      "headline": "别硬扛，先歇一歇！",
+      "description": "红枸杞超人带披风跃入，漫画黑气散开，提示职员休息。",
+      "captions": [
+        "别硬扛啦！先让眼睛歇一歇。"
+      ]
+    },
+    {
+      "id": "shields",
+      "eyebrow": "认识一颗红枸杞",
+      "headline": "小小一颗，认识它的成分",
+      "description": "枸杞超人展示两枚发光成分盾牌。",
+      "captions": [
+        "红枸杞含有枸杞多糖，",
+        "还有玉米黄质等成分。"
+      ]
+    },
+    {
+      "id": "traditional",
+      "eyebrow": "本草里的老朋友",
+      "headline": "传统中医里的枸杞",
+      "description": "职员翻开本草书，枸杞超人站在书页旁，桌上有茶。",
+      "captions": [
+        "传统中医用它滋补肝肾、益精明目。"
+      ]
+    },
+    {
+      "id": "compare",
+      "eyebrow": "挑选别走捷径",
+      "headline": "颜色、浮沉，不能单独定品质",
+      "description": "左右分屏，色深色浅的果实与不同浮沉的杯子，中间问号，避免把颜色或沉浮直接判为真假。",
+      "captions": [
+        "选枸杞，别只看颜色和泡水浮沉。"
+      ]
+    },
+    {
+      "id": "quality",
+      "eyebrow": "把细节看清楚",
+      "headline": "饱满干爽 · 信息清楚",
+      "description": "手掌中颗粒分明的枸杞、放大镜、包装标签和查看资料的职员。",
+      "captions": [
+        "颗粒饱满、干爽不结块，",
+        "还要看产地、日期和检测信息。"
+      ]
+    },
+    {
+      "id": "snack",
+      "eyebrow": "吃法先看标签",
+      "headline": "开袋即食？先看食用说明",
+      "description": "职员先查看包装说明，再展示一颗枸杞；近嘴的爱心为漫画味觉表达。",
+      "captions": [
+        "能不能开袋直接吃，先看包装的食用说明。"
+      ]
+    },
+    {
+      "id": "tea",
+      "eyebrow": "随手一搭",
+      "headline": "茶里、豆浆里，都能搭",
+      "description": "枸杞落入保温杯，旁边豆浆机盛着豆浆，超人挥手。",
+      "captions": [
+        "泡茶、打豆浆、煮粥，"
+      ]
+    },
+    {
+      "id": "porridge",
+      "eyebrow": "家常里的小滋味",
+      "headline": "清甜一口，暖暖日常",
+      "description": "职员端着枸杞粥，热气上升，小枸杞超人坐在碗沿。",
+      "captions": [
+        "随手搭配，清甜不腻。"
+      ]
+    },
+    {
+      "id": "choice",
+      "eyebrow": "选一份日常小搭配",
+      "headline": "自然滋味，按需选择",
+      "description": "职员在办公桌旁展示手绘枸杞袋，小枸杞超人陪伴。",
+      "captions": [
+        "喜欢这口自然滋味，就选一袋适合自己的吧！"
+      ]
+    },
+    {
+      "id": "ending",
+      "eyebrow": "日常轻食养",
+      "headline": "吃得适量，休息也要跟上",
+      "description": "职员离开屏幕伸展后，手举手绘枸杞袋比赞；100%绿色电量是漫画情绪表达，枸杞超人举起休息与饮食的双提示。",
+      "captions": [
+        "日常轻食养，适量吃，也别忘了休息！"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "id": "HanddrawGojiComicV1",
+  "fps": 30,
+  "audio": "handdraw-goji-comic-v1/audio/narration.mp3",
+  "audioLeadFrames": 20,
+  "audioDurationSeconds": 45.96,
+  "durationInFrames": 1436,
+  "durationSeconds": 47.86666666666667,
+  "scenes": [
+    {
+      "id": "screen",
+      "from": 0,
+      "captions": [
+        {
+          "text": "每天盯屏幕十几个小时，",
+          "startFrame": 21,
+          "endFrame": 89
+        },
+        {
+          "text": "眼睛干涩发酸，身体像没电一样？",
+          "startFrame": 92,
+          "endFrame": 186
+        }
+      ],
+      "durationInFrames": 199
+    },
+    {
+      "id": "hero",
+      "from": 199,
+      "captions": [
+        {
+          "text": "别硬扛啦！先让眼睛歇一歇。",
+          "startFrame": 199,
+          "endFrame": 285
+        }
+      ],
+      "durationInFrames": 99
+    },
+    {
+      "id": "shields",
+      "from": 298,
+      "captions": [
+        {
+          "text": "红枸杞含有枸杞多糖，",
+          "startFrame": 298,
+          "endFrame": 368
+        },
+        {
+          "text": "还有玉米黄质等成分。",
+          "startFrame": 370,
+          "endFrame": 428
+        }
+      ],
+      "durationInFrames": 143
+    },
+    {
+      "id": "traditional",
+      "from": 441,
+      "captions": [
+        {
+          "text": "传统中医用它滋补肝肾、益精明目。",
+          "startFrame": 441,
+          "endFrame": 551
+        }
+      ],
+      "durationInFrames": 123
+    },
+    {
+      "id": "compare",
+      "from": 564,
+      "captions": [
+        {
+          "text": "选枸杞，别只看颜色和泡水浮沉。",
+          "startFrame": 564,
+          "endFrame": 668
+        }
+      ],
+      "durationInFrames": 117
+    },
+    {
+      "id": "quality",
+      "from": 681,
+      "captions": [
+        {
+          "text": "颗粒饱满、干爽不结块，",
+          "startFrame": 681,
+          "endFrame": 751
+        },
+        {
+          "text": "还要看产地、日期和检测信息。",
+          "startFrame": 754,
+          "endFrame": 848
+        }
+      ],
+      "durationInFrames": 180
+    },
+    {
+      "id": "snack",
+      "from": 861,
+      "captions": [
+        {
+          "text": "能不能开袋直接吃，先看包装的食用说明。",
+          "startFrame": 861,
+          "endFrame": 978
+        }
+      ],
+      "durationInFrames": 130
+    },
+    {
+      "id": "tea",
+      "from": 991,
+      "captions": [
+        {
+          "text": "泡茶、打豆浆、煮粥，",
+          "startFrame": 991,
+          "endFrame": 1062
+        }
+      ],
+      "durationInFrames": 72
+    },
+    {
+      "id": "porridge",
+      "from": 1063,
+      "captions": [
+        {
+          "text": "随手搭配，清甜不腻。",
+          "startFrame": 1063,
+          "endFrame": 1130
+        }
+      ],
+      "durationInFrames": 80
+    },
+    {
+      "id": "choice",
+      "from": 1143,
+      "captions": [
+        {
+          "text": "喜欢这口自然滋味，就选一袋适合自己的吧！",
+          "startFrame": 1143,
+          "endFrame": 1254
+        }
+      ],
+      "durationInFrames": 124
+    },
+    {
+      "id": "ending",
+      "from": 1267,
+      "captions": [
+        {
+          "text": "日常轻食养，适量吃，也别忘了休息！",
+          "startFrame": 1267,
+          "endFrame": 1374
+        }
+      ],
+      "durationInFrames": 169
+    }
+  ],
+  "captions": [
+    {
+      "text": "每天盯屏幕十几个小时，",
+      "startFrame": 21,
+      "endFrame": 89
+    },
+    {
+      "text": "眼睛干涩发酸，身体像没电一样？",
+      "startFrame": 92,
+      "endFrame": 186
+    },
+    {
+      "text": "别硬扛啦！先让眼睛歇一歇。",
+      "startFrame": 199,
+      "endFrame": 285
+    },
+    {
+      "text": "红枸杞含有枸杞多糖，",
+      "startFrame": 298,
+      "endFrame": 368
+    },
+    {
+      "text": "还有玉米黄质等成分。",
+      "startFrame": 370,
+      "endFrame": 428
+    },
+    {
+      "text": "传统中医用它滋补肝肾、益精明目。",
+      "startFrame": 441,
+      "endFrame": 551
+    },
+    {
+      "text": "选枸杞，别只看颜色和泡水浮沉。",
+      "startFrame": 564,
+      "endFrame": 668
+    },
+    {
+      "text": "颗粒饱满、干爽不结块，",
+      "startFrame": 681,
+      "endFrame": 751
+    },
+    {
+      "text": "还要看产地、日期和检测信息。",
+      "startFrame": 754,
+      "endFrame": 848
+    },
+    {
+      "text": "能不能开袋直接吃，先看包装的食用说明。",
+      "startFrame": 861,
+      "endFrame": 978
+    },
+    {
+      "text": "泡茶、打豆浆、煮粥，",
+      "startFrame": 991,
+      "endFrame": 1062
+    },
+    {
+      "text": "随手搭配，清甜不腻。",
+      "startFrame": 1063,
+      "endFrame": 1130
+    },
+    {
+      "text": "喜欢这口自然滋味，就选一袋适合自己的吧！",
+      "startFrame": 1143,
+      "endFrame": 1254
+    },
+    {
+      "text": "日常轻食养，适量吃，也别忘了休息！",
+      "startFrame": 1267,
+      "endFrame": 1374
+    }
+  ],
+  "scriptSignature": "306c3634699bb32f273f7ee49d17dc8e6a153cc10a05f6a7c0f812597242bb10",
+  "audioSha256": "afc57608972b26ed4be49ff365bfa6cbf78df0b70ca62167a039bbbbf1d03d1f"
+}

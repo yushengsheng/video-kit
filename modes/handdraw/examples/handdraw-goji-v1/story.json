@@ -1,0 +1,140 @@
+{
+  "id": "HanddrawGojiV1",
+  "title": "一颗好枸杞",
+  "version": 1,
+  "status": "example_requires_local_assets_and_narration",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "source": "用户枸杞短片文案；为避免把经验鉴别和未经证明的商品承诺当成事实，制作稿作必要修订。",
+  "art": "原创代码国潮淡彩插画，水粉环境叠色、局部描线填色和分层轻动效。包装、基地与人物均为示意，不指代真实商品或自有基地。",
+  "voice": {
+    "name": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "provider": "Microsoft Edge online TTS",
+    "subjectiveListening": "not_verified"
+  },
+  "scenes": [
+    {
+      "id": "question",
+      "description": "暖光小店，老农拿放大镜查看桌上两碗枸杞。",
+      "eyebrow": "选购篇",
+      "headline": "天天泡枸杞，真的选对了吗？",
+      "captions": [
+        "为什么天天泡枸杞，却不一定选对了？",
+        "颜色越鲜亮，品质就越好吗？"
+      ]
+    },
+    {
+      "id": "inspect",
+      "description": "放大镜越过两碗枸杞，看见自然褶皱和果形。",
+      "eyebrow": "先看品质",
+      "headline": "选枸杞，别只看颜值",
+      "captions": [
+        "选枸杞，别只看颜值。",
+        "记住这三个选购要点。"
+      ]
+    },
+    {
+      "id": "look",
+      "description": "果枝与枸杞特写，镜头聚焦果形和果蒂。",
+      "eyebrow": "选购要点 · 01",
+      "headline": "看外观",
+      "subline": "颜色自然 · 颗粒饱满",
+      "captions": [
+        "一看外观，颜色自然，颗粒饱满。"
+      ]
+    },
+    {
+      "id": "smell",
+      "description": "老农轻闻掌心的枸杞，窗外有草木。",
+      "eyebrow": "选购要点 · 02",
+      "headline": "闻气味",
+      "subline": "避开刺鼻异味",
+      "captions": [
+        "二闻气味，避开刺鼻异味。"
+      ]
+    },
+    {
+      "id": "touch",
+      "description": "手指轻按掌中枸杞，观察干燥状态。",
+      "eyebrow": "选购要点 · 03",
+      "headline": "摸手感",
+      "subline": "干爽 · 不明显粘手",
+      "captions": [
+        "三摸手感，干爽，不明显粘手。"
+      ]
+    },
+    {
+      "id": "water",
+      "description": "两杯枸杞水有不同浮沉状态，不作真假判定。",
+      "eyebrow": "选购提醒",
+      "headline": "浮沉、白点，不能单独鉴硫",
+      "subline": "品质判断，还要查看检测信息",
+      "captions": [
+        "果蒂白点、泡水浮沉，",
+        "不能单独判断有没有硫熏。"
+      ]
+    },
+    {
+      "id": "orchard",
+      "description": "仲夏田野长卷展开，成年女性与老农从枝头采果。",
+      "eyebrow": "从枝头开始",
+      "headline": "把认真，留给每一颗果",
+      "captions": [
+        "从枝头采摘，到摊晒、筛选，"
+      ]
+    },
+    {
+      "id": "drying",
+      "description": "温暖院落，竹匾上摊开枸杞，老农翻动果实。",
+      "eyebrow": "细细挑选",
+      "headline": "摊晒与筛选",
+      "captions": [
+        "认真挑去瘪果、碎果，"
+      ]
+    },
+    {
+      "id": "sieve",
+      "description": "双手端起竹筛，饱满枸杞留在筛中，碎果落下。",
+      "eyebrow": "一筛一选",
+      "headline": "留下饱满好果",
+      "captions": [
+        "才留得下饱满的好果。"
+      ]
+    },
+    {
+      "id": "label",
+      "description": "年轻成年女性在家查看示意包装，旁边放着检测资料。",
+      "eyebrow": "买得更明白",
+      "headline": "产地 · 日期 · 检测信息",
+      "subline": "以实际商品标签及检测报告为准",
+      "captions": [
+        "再看看产地、生产日期和检测信息，",
+        "品质才更有依据。"
+      ]
+    },
+    {
+      "id": "family",
+      "description": "家庭厨房，老人端茶，年轻母亲煲汤，青年拿起枸杞。",
+      "eyebrow": "一份日常滋味",
+      "headline": "泡一杯茶，煲一锅汤",
+      "captions": [
+        "传统中医用枸杞滋补肝肾、益精明目。",
+        "日常泡茶、煲汤，或少量干嚼，"
+      ]
+    },
+    {
+      "id": "ending",
+      "description": "手绘枸杞包装、茶杯和鲜果落版，田野远景与枝叶衬托。",
+      "eyebrow": "一颗好枸杞",
+      "headline": "认真挑选，自然好滋味",
+      "subline": "日常食养 · 适量食用",
+      "captions": [
+        "尝一口清甜，留一份家常温暖。",
+        "认真挑选，适量食用，才是长久的日常滋养。"
+      ]
+    }
+  ]
+}

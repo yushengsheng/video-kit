@@ -1,0 +1,38 @@
+# Dependencies / execution state
+**/node_modules/
+**/.venv/
+**/.cache/
+**/__pycache__/
+*.pyc
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+# Personal work, generated media and large assets never enter this repository.
+/projects/
+/assets-local/
+**/public/
+**/out/
+**/output/
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.safetensors
+*.ckpt
+*.pth
+# Handdraw runtime content (keep only the shared preset)
+/modes/handdraw/content/*
+!/modes/handdraw/content/presets/
+# Machine-specific adapter configuration and generated ComfyUI workflows
+**/config.local.json
+/modes/handdraw/comfyui/handdraw_video/config.json
+/modes/handdraw/comfyui/workflows/

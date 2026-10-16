@@ -1,0 +1,12 @@
+{
+  "illustrations": "Original editable vector artwork, authored by code in scripts/create_moon_art.py",
+  "aiImageGenerationUsed": false,
+  "hand": {
+    "source": "https://github.com/threerocks/sweety-handdraw-video",
+    "commit": "5206ec0d17f9b353e400b64b9c51ad69e721e02a",
+    "asset": "teacher-pen.png",
+    "sha256": "2c035a0c900589f8650fed9fe6b863773e4496a3c1bb389dcb7dc35501bd1dd5",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2026 threerocks"
+  }
+}
