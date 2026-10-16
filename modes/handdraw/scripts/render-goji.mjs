@@ -1,3 +1,4 @@
+import {browserExecutable as findBrowser} from './browser.mjs';
 import {access, mkdir, readFile, rename, writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
@@ -22,7 +23,7 @@ for(const c of timeline.captions){if(c.startFrame<lastEnd||c.endFrame<=c.startFr
 const sources=['content/handdraw-goji-v1/story.json','content/handdraw-goji-v1/art.json','content/handdraw-goji-v1/timeline.json','content/handdraw-goji-v1/narration-record.json','public/'+timeline.audio,'public/handdraw-goji-v1/audio/music-foley.wav','public/handdraw-goji-v1/paper.jpg','public/handdraw-moon-v1/drawing-hand.png','public/fonts/NotoSerifSC-Regular.ttf','src/handdraw-goji-v1/Video.tsx','src/handdraw-goji-v1/index.tsx','scripts/render-goji.mjs','scripts/create_goji_art.py'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async s=>[s,await sha(s)])));
 await mkdir(output,{recursive:true});
-const browserExecutable=process.env.REMOTION_BROWSER_EXECUTABLE||'/Applications/Brave Browser.app/Contents/MacOS/Brave Browser';await access(browserExecutable);
+const browserExecutable=findBrowser();await access(browserExecutable);
 const options={chromeMode:'chrome-for-testing',browserExecutable};
 const serveUrl=await bundle({entryPoint:path.join(root,'src/handdraw-goji-v1/index.tsx'),publicDir:path.join(root,'public')});
 const browser=await openBrowser('chrome',options);

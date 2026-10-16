@@ -457,7 +457,7 @@ def create_texture():
 
 def create_sound():
     """Original synthesized warm plucks and soft foley, tied to the actual narration cuts."""
-    timeline=json.loads((CONTENT/'timeline.json').read_text())
+    timeline=json.loads((CONTENT/'timeline.json').read_text(encoding='utf-8'))
     sr=24000; duration=timeline['durationSeconds']; n=math.ceil(duration*sr)
     mix=np.zeros(n,dtype=np.float64); rng=np.random.default_rng(1023)
 
@@ -506,13 +506,13 @@ def create_sound():
 if __name__=='__main__':
     CONTENT.mkdir(parents=True,exist_ok=True); ASSETS.mkdir(parents=True,exist_ok=True)
     scenes=build()
-    (CONTENT/'art.json').write_text(json.dumps(scenes,ensure_ascii=False,separators=(',',':')))
+    (CONTENT/'art.json').write_text(json.dumps(scenes,ensure_ascii=False,separators=(',',':')), encoding='utf-8')
     create_texture();create_sound()
     (CONTENT/'asset-sources.json').write_text(json.dumps({
         'art':'Original code illustration: scripts/create_goji_art.py. Not AI image generation.',
         'music':'Original synthesized pentatonic plucks and foley: scripts/create_goji_art.py. No third-party music.',
-        'hand':json.loads((ROOT/'content/handdraw-moon-v1/asset-sources.json').read_text())['hand'],
+        'hand':json.loads((ROOT/'content/handdraw-moon-v1/asset-sources.json').read_text(encoding='utf-8'))['hand'],
         'font':'Noto Serif SC, SIL Open Font License; public/fonts/OFL.txt',
         'product':'Illustrated generic packaging. No real product photo, brand, laboratory certificate or farm ownership represented.'
-    },ensure_ascii=False,indent=2))
+    },ensure_ascii=False,indent=2), encoding='utf-8')
     print(json.dumps({'scenes':len(scenes),'shapes':[len(s['shapes']) for s in scenes]}))

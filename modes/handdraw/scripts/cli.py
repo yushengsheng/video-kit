@@ -1,6 +1,7 @@
 """Handdraw-only command adapter. Other modes need not import this module."""
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -8,13 +9,16 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def run(args):subprocess.run([str(x) for x in args],cwd=ROOT,check=True)
+def run(args):
+    command=[str(x) for x in args]
+    command[0]=shutil.which(command[0]) or command[0]
+    subprocess.run(command,cwd=ROOT,check=True)
 
 
 def main():
     if len(sys.argv)>1 and sys.argv[1]=='voice':
         run([sys.executable,'scripts/voice_profiles.py',*sys.argv[2:]]);return
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['initialize','prepare','render','verify','check','install-comfy']);p.add_argument('--example',choices=['moon','goji','comic','inkred'],default='moon');p.add_argument('--offline',action='store_true');p.add_argument('--preview',action='store_true');p.add_argument('--comfy-directory',type=Path);p.add_argument('--update',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['initialize','prepare','render','verify','check','install-comfy']);p.add_argument('--example',choices=['moon','goji','comic','inkred'],default='moon');p.add_argument('--offline',action='store_true');p.add_argument('--preview',action='store_true');p.add_argument('--comfy-directory',type=Path);p.add_argument('--user-directory',type=Path);p.add_argument('--update',action='store_true');a=p.parse_args()
     py=sys.executable
     if a.action=='initialize':run([py,'scripts/examples.py','initialize']);return
     if a.action=='check':
@@ -23,10 +27,10 @@ def main():
         run([py,'scripts/examples.py','prepare','--example',a.example,*(['--offline'] if a.offline else [])]);return
     if a.action=='install-comfy':
         if not a.comfy_directory:p.error('install-comfy 需要 --comfy-directory 指定 ComfyUI 根目录')
-        run([py,'scripts/install_handdraw_comfy.py','--comfy-directory',a.comfy_directory,*(['--update'] if a.update else [])]);return
+        run([py,'scripts/install_handdraw_comfy.py','--comfy-directory',a.comfy_directory,*(['--user-directory',a.user_directory] if a.user_directory else []),*(['--update'] if a.update else [])]);return
     from examples import EXAMPLES
     if a.example=='moon':
-        job=Path(json.loads((ROOT/'.cache/kit-jobs/moon.json').read_text())['manifest'])
+        job=Path(json.loads((ROOT/'.cache/kit-jobs/moon.json').read_text(encoding='utf-8'))['manifest'])
         kind='preview' if a.preview else 'full';resolution='720p' if a.preview else '1080p'
         if a.action=='render':run(['node','scripts/render-handdraw-job.mjs',job,kind,resolution])
         else:

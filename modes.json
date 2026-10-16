@@ -9,7 +9,7 @@
       "comic",
       "inkred"
     ],
-    "tested_platform": "macOS / Apple Silicon",
+    "tested_platform": "macOS / Apple Silicon；Windows 11 x64（moon）",
     "requires_gpt_model_api": false,
     "cli": "scripts/cli.py",
     "python_environment": ".cache/moon-tools-venv",

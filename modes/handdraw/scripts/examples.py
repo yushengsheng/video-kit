@@ -37,15 +37,15 @@ def prepare(name,offline=False):
     initialize()
     folder=EXAMPLES[name][0];content=ROOT/'content'/folder
     from create_moon_voice import create_narration
-    story=json.loads((content/'story.json').read_text())
+    story=json.loads((content/'story.json').read_text(encoding='utf-8'))
     asyncio.run(create_narration(story,content,ROOT/'public'/folder,folder+'/audio/narration.mp3',ROOT/'out'/folder/'captions.srt',not offline))
     draw(name)
     if name=='moon':
         from handdraw_job import prepare as prepare_job
         request=ROOT/'.cache/kit-jobs/moon-request.json';request.parent.mkdir(parents=True,exist_ok=True)
-        request.write_text(json.dumps({'story_file':'content/'+folder+'/story.json','art_file':'content/'+folder+'/art.json','speech_mode':'cached'}))
+        request.write_text(json.dumps({'story_file':'content/'+folder+'/story.json','art_file':'content/'+folder+'/art.json','speech_mode':'cached'}), encoding='utf-8')
         manifest=prepare_job(request)
-        (request.parent/'moon.json').write_text(json.dumps({'manifest':str(manifest)}))
+        (request.parent/'moon.json').write_text(json.dumps({'manifest':str(manifest)}), encoding='utf-8')
 
 
 if __name__=='__main__':

@@ -20,6 +20,7 @@
 *.mkv
 *.webm
 *.mp3
+*.m4a
 *.wav
 *.flac
 *.ttf
@@ -29,6 +30,7 @@
 *.safetensors
 *.ckpt
 *.pth
+*.pt
 # Handdraw runtime content (keep only the shared preset)
 /modes/handdraw/content/*
 !/modes/handdraw/content/presets/

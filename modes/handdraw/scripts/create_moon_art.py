@@ -298,7 +298,7 @@ def make_scenes():
 
 def main():
     scenes = make_scenes()
-    (ROOT / "content/handdraw-moon-v1/art.json").write_text(json.dumps(scenes, ensure_ascii=False, separators=(",", ":")))
+    (ROOT / "content/handdraw-moon-v1/art.json").write_text(json.dumps(scenes, ensure_ascii=False, separators=(",", ":")), encoding='utf-8')
     rng = np.random.default_rng(314)
     noise = rng.normal(0, .6, (1080, 1920, 1))
     paper = np.clip(np.array([249, 246, 236])[None,None,:] + noise, 0, 255).astype(np.uint8)
@@ -315,7 +315,7 @@ def main():
         print("hand", hand.size)
     provenance = {"illustrations":"Original editable vector artwork, authored by code in scripts/create_moon_art.py", "aiImageGenerationUsed":False,
                   "hand":{"source":"https://github.com/threerocks/sweety-handdraw-video", "commit":"5206ec0d17f9b353e400b64b9c51ad69e721e02a", "asset":"teacher-pen.png", "sha256":"2c035a0c900589f8650fed9fe6b863773e4496a3c1bb389dcb7dc35501bd1dd5", "license":"MIT", "copyright":"Copyright (c) 2026 threerocks"}}
-    (ROOT / "content/handdraw-moon-v1/asset-sources.json").write_text(json.dumps(provenance,ensure_ascii=False,indent=2))
+    (ROOT / "content/handdraw-moon-v1/asset-sources.json").write_text(json.dumps(provenance,ensure_ascii=False,indent=2), encoding='utf-8')
     license_path = ROOT.parents[1] / "licenses/MIT-drawing-hand.txt"
     if license_path.is_file():
         shutil.copy2(license_path, ASSETS / "drawing-hand-LICENSE.txt")

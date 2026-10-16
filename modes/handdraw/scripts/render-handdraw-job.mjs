@@ -1,3 +1,4 @@
+import {browserExecutable as findBrowser} from './browser.mjs';
 import {access, mkdir, readFile, rename, writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
@@ -26,7 +27,7 @@ const recordPath = path.join(directory,'render.json');
 let cached;
 try {cached=JSON.parse(await readFile(recordPath,'utf8'));} catch(error) {if(error.code!=='ENOENT')throw error;}
 if (cached && await sha(final)===cached.film_sha256) {console.log(JSON.stringify({render:recordPath,cached:true}));process.exit(0);}
-const browserExecutable=process.env.REMOTION_BROWSER_EXECUTABLE||'/Applications/Brave Browser.app/Contents/MacOS/Brave Browser';
+const browserExecutable=findBrowser();
 await access(browserExecutable);
 const options={chromeMode:'chrome-for-testing',browserExecutable};
 const serveUrl=await bundle({entryPoint:path.join(root,'src/handdraw-moon/comfy.tsx'),publicDir:path.join(root,'public')});

@@ -1,3 +1,4 @@
+import {browserExecutable as findBrowser} from './browser.mjs';
 import {access, mkdir, readFile, rename} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -23,7 +24,7 @@ if (story.scenes.map(s => s.id).join('|') !== timeline.scenes.map(s => s.id).joi
 if (story.scenes.flatMap(s=>s.captions).join('') !== narration.text || timeline.scriptSignature !== narration.signature
   || ['name','rate','pitch'].some(key=>story.voice[key] !== narration.voice[key])) throw new Error('旁白记录与当前文案或音色不符');
 if (createHash('sha256').update(await readFile(path.join(root,'public',timeline.audio))).digest('hex') !== timeline.audioSha256) throw new Error('音频已改变，需要重新生成时间轴');
-const browserExecutable = process.env.REMOTION_BROWSER_EXECUTABLE || '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser';
+const browserExecutable = findBrowser();
 await access(browserExecutable);
 const options = {chromeMode:'chrome-for-testing', browserExecutable};
 const serveUrl = await bundle({entryPoint:path.join(root,'src/handdraw-moon/index.tsx'),publicDir:path.join(root,'public')});

@@ -10,6 +10,7 @@ from pathlib import Path
 
 import imageio_ffmpeg
 import numpy as np
+from media_tools import probe_command
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'out/handdraw-goji-v1'
@@ -21,15 +22,15 @@ def digest(path):
 
 
 def verify(preview=False):
-    render=json.loads((OUT/('preview-render.json' if preview else 'render.json')).read_text())
+    render=json.loads((OUT/('preview-render.json' if preview else 'render.json')).read_text(encoding='utf-8'))
     for name,expected in render['input_hashes'].items():
         if digest(ROOT/name)!=expected:
             raise ValueError(f'Source changed after render: {name}')
     film=Path(render['film'])
     assert digest(film)==render['film_sha256']
     ffmpeg=imageio_ffmpeg.get_ffmpeg_exe()
-    compositor=ROOT/'node_modules/@remotion/compositor-darwin-arm64'
-    probe=subprocess.run([str(compositor/'ffprobe'),'-v','error','-show_streams','-show_format','-of','json',str(film)],capture_output=True,text=True,check=True,env={**os.environ,'DYLD_LIBRARY_PATH':str(compositor)})
+    ffprobe,probe_env=probe_command()
+    probe=subprocess.run([ffprobe,'-v','error','-show_streams','-show_format','-of','json',str(film)],capture_output=True,text=True,check=True,env=probe_env)
     info=json.loads(probe.stdout)
     video=[s for s in info['streams'] if s['codec_type']=='video']
     audio=[s for s in info['streams'] if s['codec_type']=='audio']
@@ -45,7 +46,7 @@ def verify(preview=False):
     def wave(path):
         r=subprocess.run([ffmpeg,'-v','error','-i',str(path),'-map','0:a:0','-ar','24000','-ac','1','-f','f32le','-'],capture_output=True,check=True)
         return np.frombuffer(r.stdout,dtype='<f4')
-    tl=json.loads((CONTENT/'timeline.json').read_text())
+    tl=json.loads((CONTENT/'timeline.json').read_text(encoding='utf-8'))
     speech=wave(ROOT/'public'/tl['audio'])
     music=wave(ROOT/'public/handdraw-goji-v1/audio/music-foley.wav')
     encoded=wave(film)
@@ -67,7 +68,7 @@ def verify(preview=False):
     assert correlation>.98,correlation
     assert 0<peak<.999,peak
     if not preview: assert len(encoded)>=lead+len(speech)-1200
-    story=json.loads((CONTENT/'story.json').read_text())
+    story=json.loads((CONTENT/'story.json').read_text(encoding='utf-8'))
     assert ''.join(c for s in story['scenes'] for c in s['captions'])==''.join(c['text'] for c in tl['captions'])
     previous=0
     for caption in tl['captions']:
@@ -86,7 +87,7 @@ def verify(preview=False):
         'product_photo':'not_provided; illustrated_placeholder_labeled_in_film',
         'content_changes':'content/handdraw-goji-v1/editorial-notes.md'
     }
-    (OUT/('preview-verification.json' if preview else 'verification.json')).write_text(json.dumps(report,ensure_ascii=False,indent=2))
+    (OUT/('preview-verification.json' if preview else 'verification.json')).write_text(json.dumps(report,ensure_ascii=False,indent=2), encoding='utf-8')
     print(json.dumps(report,ensure_ascii=False,indent=2))
 
 

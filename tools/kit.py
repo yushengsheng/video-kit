@@ -14,7 +14,9 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def run(args,cwd):
-    subprocess.run([str(x) for x in args],cwd=cwd,check=True)
+    command=[str(x) for x in args]
+    command[0]=shutil.which(command[0]) or command[0]
+    subprocess.run(command,cwd=cwd,check=True)
 
 
 def mode_path(name):

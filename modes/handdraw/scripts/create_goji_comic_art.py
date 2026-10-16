@@ -300,7 +300,7 @@ def texture():
 
 
 def sound():
-    tl=json.loads((CONTENT/'timeline.json').read_text());sr=24000;n=round(tl['durationSeconds']*sr)
+    tl=json.loads((CONTENT/'timeline.json').read_text(encoding='utf-8'));sr=24000;n=round(tl['durationSeconds']*sr)
     mix=np.zeros(n);rng=np.random.default_rng(109)
     def add(start,signal,gain=1):
         i=round(start*sr);end=min(n,i+len(signal))
@@ -344,6 +344,6 @@ if __name__=='__main__':
     import sys
     ASSETS.mkdir(parents=True,exist_ok=True);(ASSETS/'audio').mkdir(exist_ok=True)
     scenes=build('--representative' in sys.argv)
-    (CONTENT/'art.json').write_text(json.dumps(scenes,ensure_ascii=False,separators=(',',':')))
+    (CONTENT/'art.json').write_text(json.dumps(scenes,ensure_ascii=False,separators=(',',':')), encoding='utf-8')
     texture();sound()
     print(json.dumps({'scenes':len(scenes),'shapes':[len(s['shapes']) for s in scenes]}))

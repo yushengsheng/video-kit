@@ -10,13 +10,14 @@ from pathlib import Path
 import imageio_ffmpeg
 import numpy as np
 from PIL import Image, ImageDraw
+from media_tools import probe_command
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "out/handdraw-moon-v1"
 CONTENT = ROOT / "content/handdraw-moon-v1"
 FILM = OUTPUT / "井里的月亮-手绘故事-v1.mp4"
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
-COMPOSITOR = ROOT / "node_modules/@remotion/compositor-darwin-arm64"
+FFPROBE, PROBE_ENV = probe_command()
 
 
 def run(command, **kwargs):
@@ -29,9 +30,9 @@ def waveform(path):
 
 
 def main():
-    story = json.loads((CONTENT / "story.json").read_text())
-    timeline = json.loads((CONTENT / "timeline.json").read_text())
-    narration = json.loads((CONTENT / "narration-record.json").read_text())
+    story = json.loads((CONTENT / "story.json").read_text(encoding='utf-8'))
+    timeline = json.loads((CONTENT / "timeline.json").read_text(encoding='utf-8'))
+    narration = json.loads((CONTENT / "narration-record.json").read_text(encoding='utf-8'))
     audio = ROOT / "public" / timeline["audio"]
     text = "".join(c for scene in story["scenes"] for c in scene["captions"])
     assert narration["text"] == text
@@ -43,8 +44,8 @@ def main():
     for cue in timeline["captions"]:
         assert previous <= cue["startFrame"] < cue["endFrame"] <= timeline["durationInFrames"]
         previous = cue["endFrame"]
-    probe_env = {**os.environ, "DYLD_LIBRARY_PATH": str(COMPOSITOR)}
-    probe = json.loads(run([str(COMPOSITOR / "ffprobe"), "-v", "error", "-show_streams", "-show_format", "-of", "json", str(FILM)], env=probe_env, text=True).stdout)
+    probe_env = PROBE_ENV
+    probe = json.loads(run([FFPROBE, "-v", "error", "-show_streams", "-show_format", "-of", "json", str(FILM)], env=probe_env, text=True).stdout)
     videos = [s for s in probe["streams"] if s["codec_type"] == "video"]
     audios = [s for s in probe["streams"] if s["codec_type"] == "audio"]
     assert len(videos) == len(audios) == 1
@@ -98,7 +99,7 @@ def main():
         "production":{"artwork":"original vector illustrations", "animation":"actual SVG path tracing and local paint masks; pen tip follows current path", "tts":"edge-tts 7.3.1 / zh-CN-XiaoyiNeural", "renderer":"Remotion / Brave headless"},
         "limitations":["This is an independent hand-drawing story trial, not a replacement for the herbal-series character and voice template.","No full character locomotion or lip sync.","Voice timbre and word-by-word pronunciation await listening acceptance."]
     }
-    (OUTPUT / "verification.json").write_text(json.dumps(report,ensure_ascii=False,indent=2))
+    (OUTPUT / "verification.json").write_text(json.dumps(report,ensure_ascii=False,indent=2), encoding='utf-8')
     print(json.dumps(report,ensure_ascii=False,indent=2))
 
 

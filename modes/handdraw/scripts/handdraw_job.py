@@ -13,11 +13,12 @@ import imageio_ffmpeg
 import numpy as np
 
 from create_moon_voice import create_narration
+from media_tools import probe_command
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 JOBS = PUBLIC / "comfyui-handdraw"
-ENGINE_FILES = ["src/handdraw-moon/Video.tsx", "src/handdraw-moon/comfy.tsx", "scripts/render-handdraw-job.mjs", "scripts/create_moon_voice.py", "scripts/handdraw_job.py"]
+ENGINE_FILES = ["src/handdraw-moon/Video.tsx", "src/handdraw-moon/comfy.tsx", "scripts/render-handdraw-job.mjs", "scripts/create_moon_voice.py", "scripts/handdraw_job.py", "scripts/browser.mjs", "scripts/media_tools.py"]
 
 
 def digest(path):
@@ -32,11 +33,11 @@ def contained(path, parent):
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text())
+    return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
 def write_json(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2))
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
 def validate(story, art):
@@ -114,9 +115,9 @@ def verify(render_path):
             raise ValueError("素材在渲染后发生改变，拒绝使用旧检查结果。")
     film = contained(render["film"],render_path.parent)
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-    compositor = ROOT/"node_modules/@remotion/compositor-darwin-arm64"
-    probe = subprocess.run([str(compositor/"ffprobe"),"-v","error","-show_streams","-show_format","-of","json",str(film)],check=True,capture_output=True,text=True,
-                           env={**os.environ,"DYLD_LIBRARY_PATH":str(compositor)})
+    ffprobe, probe_env = probe_command()
+    probe = subprocess.run([ffprobe,"-v","error","-show_streams","-show_format","-of","json",str(film)],check=True,capture_output=True,text=True,
+                           env=probe_env)
     info = json.loads(probe.stdout)
     video = [s for s in info["streams"] if s["codec_type"]=="video"]
     audio = [s for s in info["streams"] if s["codec_type"]=="audio"]

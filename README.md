@@ -12,9 +12,11 @@
 
 助手依次读取根目录和模式规则，完成分镜、原创代码画面、连续旁白、字幕、预览与导出。**不要求用户准备图片，也不接 GPT 模型 API。** 这不是纯 ComfyUI 从任意文案自动绘图的无人值守程序。
 
+新片、配音复用和画面修订的具体顺序见 [手绘制作流程](modes/handdraw/WORKFLOW.md)。个人生产代码与媒体放在projects独立版本内，复用模式依赖；导出后修改保留旧版。
+
 ## 首次安装
 
-需要 Git、Python **3.10+**、Node.js **22+**（含 npm）、Brave 或 Chrome。首次安装依赖和字体需要联网；新旁白使用 Edge 在线 TTS，也需要联网。当前验证平台是 **macOS / Apple Silicon**；其他系统尚未验证，现有检查器使用 macOS arm64 Remotion 的 ffprobe，不能声称已经跨平台。
+需要 Git、Python **3.10+**、Node.js **22+**（含 npm）、Brave 或 Chrome。首次安装依赖和字体需要联网；默认旁白使用 Edge 在线 TTS，也需要联网，本地命名音色另按其说明配置。原验证平台是 **macOS / Apple Silicon**；本地 Windows 11 x64 已验证 `moon` 示例的安装、ComfyUI 短预览与完整 1080p 导出，其他 Windows 示例未逐一导出验证。
 
 ```sh
 git clone https://github.com/yushengsheng/video-kit.git
@@ -29,7 +31,9 @@ python3 tools/kit.py render handdraw --example moon
 python3 tools/kit.py verify handdraw --example moon
 ```
 
-默认使用 macOS 已安装 Brave 的独立无界面实例，不读取个人浏览记录。其他安装位置可设置环境变量 `REMOTION_BROWSER_EXECUTABLE` 为浏览器可执行文件的绝对路径。
+自动查找已安装的 Brave / Chrome（Windows 也可使用 Edge），启动独立无界面实例。其他安装位置可设置环境变量 `REMOTION_BROWSER_EXECUTABLE` 为浏览器可执行文件的绝对路径。视频检查优先使用 PATH 中的 ffprobe，否则查找当前平台的 Remotion 工具，也可设置 `FFPROBE_EXECUTABLE`。
+
+Windows PowerShell 中将上述 `python3` 换成 `py -3.10`（本次验证使用 Python 3.10）。文件读写统一使用 UTF-8；无需修改系统编码或 ComfyUI 的 Python 环境。
 
 示例 `--example` 可选 `moon`、`goji`、`comic`、`inkred`。它们是确定内容的可复用示例，不是随便改一句文案就能自动重画。真实新稿由助手准备独立版本画面和代码。示例首次复制到本地 `content/`，不会因代码更新自动覆盖本地稿件；需要最新示例时另建本地副本。
 
@@ -72,6 +76,8 @@ python3 tools/kit.py install-comfy handdraw --comfy-directory /你的/ComfyUI目
 # 仓库更新后，显式同步受管节点与工作流：
 python3 tools/kit.py install-comfy handdraw --comfy-directory /你的/ComfyUI目录 --update
 ```
+
+如果 ComfyUI 启动时指定了 `--user-directory`，安装时也传入相同的 `--user-directory /你的/用户目录`，确保工作流出现在当前界面。
 
 安装后重启 ComfyUI，在“手绘故事”中打开短预览／完整导出。安装器写入本机路径，不把路径上传。已有非本工具安装的节点拒绝覆盖；受管代码或工作流被你手工修改时，更新也停止。默认四节点支持原手绘路径后端，特殊广告示例使用各自独立脚本入口，不把它们冒充四节点自动支持的功能。
 

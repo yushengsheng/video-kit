@@ -27,13 +27,13 @@ async def create_narration(story, content=CONTENT, assets=ASSETS,
     (assets / "audio").mkdir(parents=True, exist_ok=True)
     srt_path.parent.mkdir(parents=True, exist_ok=True)
     narration = "".join(caption for scene in story["scenes"] for caption in scene["captions"])
-    (content / "narration.txt").write_text(narration + "\n")
+    (content / "narration.txt").write_text(narration + "\n", encoding='utf-8')
     voice = story["voice"]
     signature = hashlib.sha256(json.dumps({"text": narration, "voice": voice}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     audio = assets / "audio/narration.mp3"
     record_path = content / "narration-record.json"
-    if audio.is_file() and record_path.is_file() and json.loads(record_path.read_text()).get("signature") == signature:
-        boundaries = json.loads(record_path.read_text())["boundaries"]
+    if audio.is_file() and record_path.is_file() and json.loads(record_path.read_text(encoding='utf-8')).get("signature") == signature:
+        boundaries = json.loads(record_path.read_text(encoding='utf-8'))["boundaries"]
     else:
         if not allow_generate:
             raise ValueError("当前文案或音色没有匹配的配音缓存。请切换为“缺失时生成配音（联网）”，或准备正确的音频与时码。")
@@ -49,7 +49,7 @@ async def create_narration(story, content=CONTENT, assets=ASSETS,
         if not boundaries or temporary.stat().st_size < 1000:
             raise RuntimeError("Speech service returned incomplete data")
         temporary.replace(audio)
-        record_path.write_text(json.dumps({"signature": signature, "voice": voice, "text": narration, "boundaries": boundaries, "subjectiveListening": "not_verified"}, ensure_ascii=False, indent=2))
+        record_path.write_text(json.dumps({"signature": signature, "voice": voice, "text": narration, "boundaries": boundaries, "subjectiveListening": "not_verified"}, ensure_ascii=False, indent=2), encoding='utf-8')
     if normalized("".join(item["text"] for item in boundaries)) != normalized(narration):
         raise RuntimeError("Returned speech timing text does not match this script")
     character_times = []
@@ -85,7 +85,7 @@ async def create_narration(story, content=CONTENT, assets=ASSETS,
     timeline = {"id": story["id"], "fps": fps, "audio": audio_relative, "audioLeadFrames": round(lead * fps), "audioDurationSeconds": duration,
                 "durationInFrames": total, "durationSeconds": total / fps, "scenes": scenes, "captions": captions, "scriptSignature": signature,
                 "audioSha256": hashlib.sha256(audio.read_bytes()).hexdigest()}
-    (content / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2))
+    (content / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding='utf-8')
     def srt_time(frame):
         milliseconds = round(frame * 1000 / fps)
         hours, milliseconds = divmod(milliseconds, 3_600_000)
@@ -93,13 +93,13 @@ async def create_narration(story, content=CONTENT, assets=ASSETS,
         seconds, milliseconds = divmod(milliseconds, 1000)
         return f"{hours:02}:{minutes:02}:{seconds:02},{milliseconds:03}"
     srt = "\n\n".join(f"{i+1}\n{srt_time(c['startFrame'])} --> {srt_time(c['endFrame'])}\n{c['text']}" for i, c in enumerate(captions)) + "\n"
-    srt_path.write_text(srt)
+    srt_path.write_text(srt, encoding='utf-8')
     print(json.dumps({"durationSeconds": total / fps, "scenes": [{"id": s["id"], "seconds": s["durationInFrames"] / fps} for s in scenes], "voice": voice["name"]}, ensure_ascii=False, indent=2))
     return timeline
 
 
 async def main():
-    await create_narration(json.loads((CONTENT / "story.json").read_text()))
+    await create_narration(json.loads((CONTENT / "story.json").read_text(encoding='utf-8')))
 
 
 if __name__ == "__main__":

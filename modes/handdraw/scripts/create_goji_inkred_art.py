@@ -219,7 +219,7 @@ def build():
 
 
 def sound():
-    tl=json.loads((CONTENT/'timeline.json').read_text());art=json.loads((CONTENT/'art.json').read_text())
+    tl=json.loads((CONTENT/'timeline.json').read_text(encoding='utf-8'));art=json.loads((CONTENT/'art.json').read_text(encoding='utf-8'))
     sr=24000;n=math.ceil(tl['durationSeconds']*sr);mix=np.zeros(n);rng=np.random.default_rng(52105);events=[]
     def add(at,signal,gain,label):
         start=max(0,round(at*sr));end=min(n,start+len(signal))
@@ -254,12 +254,12 @@ def sound():
     with wave.open(str(ASSETS/'audio/foley.wav'),'wb') as f:
         f.setnchannels(2);f.setsampwidth(2);f.setframerate(sr)
         f.writeframes((np.column_stack((mix,mix*.97))*32767).clip(-32767,32767).astype('<i2').tobytes())
-    (CONTENT/'foley-events.json').write_text(json.dumps({'source':'original procedural synthesis; no background music','peak':float(np.max(np.abs(mix))),'events':events},ensure_ascii=False,indent=2))
+    (CONTENT/'foley-events.json').write_text(json.dumps({'source':'original procedural synthesis; no background music','peak':float(np.max(np.abs(mix))),'events':events},ensure_ascii=False,indent=2), encoding='utf-8')
 
 
 if __name__=='__main__':
     CONTENT.mkdir(exist_ok=True);ASSETS.mkdir(exist_ok=True);(ASSETS/'audio').mkdir(exist_ok=True)
-    art=build();(CONTENT/'art.json').write_text(json.dumps(art,ensure_ascii=False,separators=(',',':')))
+    art=build();(CONTENT/'art.json').write_text(json.dumps(art,ensure_ascii=False,separators=(',',':')), encoding='utf-8')
     shutil.copy2(ROOT/'public/handdraw-moon-v1/paper.jpg',ASSETS/'paper.jpg')
     sound()
     print(json.dumps({'scenes':len(art),'paths':[len(x['shapes']) for x in art]}))

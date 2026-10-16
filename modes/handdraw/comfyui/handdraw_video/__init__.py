@@ -12,7 +12,7 @@ import folder_paths
 from comfy.model_management import throw_exception_if_processing_interrupted
 
 CONFIG_FILE = Path(__file__).parent/"config.json"
-CONFIG = json.loads(CONFIG_FILE.read_text()) if CONFIG_FILE.is_file() else {}
+CONFIG = json.loads(CONFIG_FILE.read_text(encoding='utf-8')) if CONFIG_FILE.is_file() else {}
 DEFAULT_PROJECT = CONFIG.get("project_directory", "")
 SPEECH_MODES = {"仅复用匹配缓存（离线）":"cached", "缺失时生成配音（联网）":"generate_missing"}
 RENDER_MODES = {"首镜预览":"preview", "完整视频":"full"}
@@ -29,16 +29,30 @@ def inside(path, parent):
     return path
 
 
+def stop_windows_process(process):
+    try:
+        subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],capture_output=True,timeout=10)
+    except (OSError,subprocess.TimeoutExpired):
+        process.kill()
+    try:
+        process.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        process.kill()
+        process.wait(timeout=5)
+
+
 def execute(project, command, log_name):
     directory = project/".cache/comfyui-handdraw-logs"
     directory.mkdir(parents=True,exist_ok=True)
     log = directory/log_name
     env = os.environ.copy()
+    env['PYTHONUTF8'] = '1'
+    env['PYTHONIOENCODING'] = 'utf-8'
     node = shutil.which("node")
     if node:
         env["PATH"] = str(Path(node).parent)+os.pathsep+env.get("PATH","")
-    with log.open("w") as output:
-        process = subprocess.Popen(command,cwd=project,stdout=output,stderr=subprocess.STDOUT,env=env,start_new_session=True)
+    with log.open("w", encoding='utf-8') as output:
+        process = subprocess.Popen(command,cwd=project,stdout=output,stderr=subprocess.STDOUT,env=env,start_new_session=os.name!='nt')
         deadline = time.monotonic()+1800
         try:
             while process.poll() is None:
@@ -48,20 +62,23 @@ def execute(project, command, log_name):
                 time.sleep(.25)
         finally:
             if process.poll() is None:
-                os.killpg(process.pid,signal.SIGTERM)
-                try:
-                    process.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    os.killpg(process.pid,signal.SIGKILL)
-                    process.wait()
-    lines = log.read_text().splitlines()
+                if os.name == 'nt':
+                    stop_windows_process(process)
+                else:
+                    os.killpg(process.pid,signal.SIGTERM)
+                    try:
+                        process.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        os.killpg(process.pid,signal.SIGKILL)
+                        process.wait(timeout=5)
+    lines = log.read_text(encoding='utf-8').splitlines()
     if process.returncode:
         raise RuntimeError("执行失败，日志："+str(log)+"\n"+"\n".join(lines[-12:]))
     return json.loads(lines[-1])
 
 
 def python_for(project):
-    python = project/".cache/moon-tools-venv/bin/python"
+    python = project/".cache/moon-tools-venv"/('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
     if not python.is_file():
         raise ValueError("视频工具环境缺失，请按手绘工作流说明建立 .cache/moon-tools-venv。")
     return str(python)
@@ -123,7 +140,7 @@ class HanddrawNarration:
         data = json.dumps(request,ensure_ascii=False,sort_keys=True)
         name = hashlib.sha256(data.encode()).hexdigest()[:20]
         request_path = request_dir/(name+".json")
-        request_path.write_text(data)
+        request_path.write_text(data, encoding='utf-8')
         result = execute(project,[python_for(project),str(project/"scripts/handdraw_job.py"),"prepare",str(request_path)],name+"-prepare.log")
         return ({"project":str(project),"manifest":result["job"]},)
 
@@ -153,7 +170,7 @@ class HanddrawRender:
         mode_key = RENDER_MODES[mode]
         log_name = Path(job["manifest"]).parent.name+f"-{mode_key}-{resolution}.log"
         result = execute(project,[node,str(project/"scripts/render-handdraw-job.mjs"),job["manifest"],mode_key,resolution],log_name)
-        record = json.loads(Path(result["render"]).read_text())
+        record = json.loads(Path(result["render"]).read_text(encoding='utf-8'))
         subfolder = "handdraw/"+Path(job["manifest"]).parent.name+f"/{mode_key}-{resolution}"
         destination = inside(Path(folder_paths.get_output_directory())/subfolder,folder_paths.get_output_directory())
         destination.mkdir(parents=True,exist_ok=True)

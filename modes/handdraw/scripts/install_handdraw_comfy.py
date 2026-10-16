@@ -33,8 +33,9 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def install(comfy, update=False):
+def install(comfy, update=False, user_directory=None):
     comfy=comfy.expanduser().resolve()
+    user_directory=Path(user_directory).expanduser().resolve() if user_directory else comfy/'user'
     if not (comfy/"main.py").is_file() or not (comfy/"custom_nodes").is_dir():
         raise ValueError("找不到 ComfyUI 根目录。")
     node=shutil.which("node")
@@ -45,7 +46,7 @@ def install(comfy, update=False):
     if destination.exists():
         if not update or not marker.is_file():
             raise FileExistsError("已有节点不是可直接覆盖的受管安装，已保留："+str(destination))
-        previous=json.loads(marker.read_text())
+        previous=json.loads(marker.read_text(encoding='utf-8'))
         for name,expected in previous.get("files",{}).items():
             path=destination/name
             if not path.is_file() or digest(path)!=expected:
@@ -61,7 +62,7 @@ def install(comfy, update=False):
              "2":{"class_type":"HanddrawNarration","inputs":{"source":["1",0],"speech_mode":"缺失时生成配音（联网）"}},
              "3":{"class_type":"HanddrawRender","inputs":{"job":["2",0],"mode":mode,"resolution":resolution}},
              "4":{"class_type":"HanddrawVerify","inputs":{"render":["3",0]}}}
-        files[comfy/"user/default/workflows/手绘故事"/(name+".json")]=graph
+        files[user_directory/"default/workflows/手绘故事"/(name+".json")]=graph
         files[ROOT/"comfyui/workflows"/(name+"_api.json")]=api
     # Preflight every destination before writing any node/workflow file.
     for path in files:
@@ -71,11 +72,11 @@ def install(comfy, update=False):
         target=destination/name;target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(PACKAGE/name,target)
     config=destination/"config.json"
-    if not config.exists():config.write_text(json.dumps({"project_directory":str(ROOT),"node_executable":node},ensure_ascii=False,indent=2))
+    if not config.exists():config.write_text(json.dumps({"project_directory":str(ROOT),"node_executable":node},ensure_ascii=False,indent=2), encoding='utf-8')
     for path,value in files.items():
-        path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2))
+        path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2), encoding='utf-8')
     record={"source":"https://github.com/yushengsheng/video-kit.git","files":{name:digest(destination/name) for name in ["__init__.py","web/preview.js"]},"workflows":{str(path):digest(path) for path in files}}
-    marker.write_text(json.dumps(record,ensure_ascii=False,indent=2))
+    marker.write_text(json.dumps(record,ensure_ascii=False,indent=2), encoding='utf-8')
     print(json.dumps({"nodes":str(destination),"updated":update,"restart_comfyui_required":True},ensure_ascii=False))
 
 
@@ -83,5 +84,6 @@ if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--comfy-directory",type=Path,required=True)
     parser.add_argument("--update",action="store_true")
+    parser.add_argument("--user-directory",type=Path)
     args=parser.parse_args()
-    install(args.comfy_directory,args.update)
+    install(args.comfy_directory,args.update,args.user_directory)

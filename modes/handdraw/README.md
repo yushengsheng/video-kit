@@ -2,6 +2,8 @@
 
 本模式完整保留代码绘画、连续旁白、字幕、逐笔描线、局部填色、画笔跟随与 Remotion 导出。默认暖白纸张、简洁构图，不做 PPT，不采用动画电影式背景。
 
+新稿和修订遵循 [制作流程](WORKFLOW.md)：个人项目入口留在projects内、先选声并绑定真实时码、保持版本标识一致、预览后导出、片尾效果与绘画进度分开控制，并记录成片检查。
+
 ## 四个示例
 
 | 名称 | 内容 | 动态 |
@@ -27,11 +29,13 @@
 
 参考时间轴不是可用的音频缓存。首次必须 `prepare`，以服务实际返回时码替换本地参考值；不允许改稿后悄悄沿用旧声音。可加 `--offline` 严格禁止生成新旁白，缓存缺失或不匹配时明确失败。
 
+如本机存在根目录 `projects/config.local.json`，助手创作新片时优先采用其中已认可的个人音色。本地声音复刻需先生成旁白并按真实音频对齐字幕，再进入合成；现有Edge联网节点不自动切换引擎。个人音色、模型和验收记录保存在本地个人项目中。
+
 新故事的绘制脚本、story/art JSON和全部内容由桌面助手准备；现有绘图脚本中的剧情是具体实现，不能解释任意文案。遵循 AGENTS.md 的内容审查规则，新版本不覆盖旧作品。预设供助手读取，不是自动改画风的程序接口。
 
 ## 技术与边界
 
-目前验证环境为 macOS Apple Silicon。隔离Python环境 `.cache/moon-tools-venv`，Node依赖仅安装在本模块；不修改 ComfyUI 主环境。基础资源见 assets.json，源地址与SHA-256固定；上游文件若变化校验会拒绝，不自动接受不同内容。手绘画笔MIT、两种字体OFL，许可在仓库根 licenses/。
+原验证环境为 macOS Apple Silicon；Windows 11 x64 本地验证了 moon 的 ComfyUI 短预览和完整1080p导出。隔离Python环境 `.cache/moon-tools-venv`（Windows 使用 `Scripts/python.exe`），Node依赖仅安装在本模块；不修改 ComfyUI 主环境。基础资源见 assets.json，源地址与SHA-256固定；上游文件若变化校验会拒绝，不自动接受不同内容。手绘画笔MIT、两种字体OFL，许可在仓库根 licenses/。
 
 moon 的默认任务输出在 `out/comfyui-handdraw/<指纹>/<preview-720p或full-1080p>/`；另外三个示例在 `out/handdraw-对应示例-v1/`。具体输出路径以命令返回为准。
 

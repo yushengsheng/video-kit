@@ -27,6 +27,7 @@
     "repeat_style_questions": false
   },
   "story": {
+    "production_workflow": "WORKFLOW.md；个人源代码和数据放根目录projects的独立版本内，复用模式依赖；story、timeline及Composition的id一致；只改画面时复用签名与音频身份匹配的旁白。",
     "target_seconds": 60,
     "duration_policy": "服从文案与实际旁白，不强行拉伸或删改已定稿内容；镜数随文案调整",
     "sentences_per_scene": [
@@ -64,6 +65,7 @@
       "自然切镜"
     ],
     "optional_motion": "按分镜需要做叶片、袖口、呼吸等小幅分层运动，不默认添加复杂口型",
+    "short_scene_and_ending": "短镜头保留完整人物可见时间；日光等片尾效果与绘画完成度分别控制，可保持完整画面再渐变，不让重新描画占满效果时间。",
     "limits": "默认恢复原片手绘方向，不增加电影式复杂背景或完整人物表演；静图推拉不是完整人物动画",
     "acceptance": "用户明确要求恢复原手绘方向；原片画面与合成技术已实际验证，不代表音色和未来成片均已获审美验收",
     "font_file": "public/fonts/NotoSerifSC-Regular.ttf",
@@ -73,6 +75,7 @@
   },
   "voice": {
     "named_presets": "明确指定“玄骨”等命名音色时，先读 voices/README.md 和 voices/presets.json；使用 tools/kit.py voice handdraw 查询并调用本地预设。显式指定优先于本机默认音色；资料缺失不静默替换。",
+    "local_override": "助手先读取仓库根目录 projects/config.local.json（如存在），优先沿用用户已认可的本机音色；本期明确要求优先。个人录音与音色配置不入Git。",
     "provider": "Microsoft Edge online TTS",
     "name": "zh-CN-XiaoyiNeural",
     "rate": "-12%",
