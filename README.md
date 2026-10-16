@@ -33,6 +33,12 @@ python3 tools/kit.py verify handdraw --example moon
 
 示例 `--example` 可选 `moon`、`goji`、`comic`、`inkred`。它们是确定内容的可复用示例，不是随便改一句文案就能自动重画。真实新稿由助手准备独立版本画面和代码。示例首次复制到本地 `content/`，不会因代码更新自动覆盖本地稿件；需要最新示例时另建本地副本。
 
+## 命名音色
+
+可直接对助手说：“用玄骨配音，制作手绘视频：……”。本地资料就绪后按名称调用，无需再次截取参考录音；调用方式、预设和说明随仓库更新。运行 `python3 tools/kit.py voice handdraw list` 查看是否就绪，详见 [命名音色与迁移](modes/handdraw/voices/README.md)。
+
+参考录音、模型和个人配置仍留在本地 `projects/`，更新代码会保留；换电脑需另行复制音色资料并配置独立声音环境。普通Edge流程不增加模型依赖，现有ComfyUI联网节点也不会自动切换引擎。
+
 ## 目录与隔离
 
 ```text

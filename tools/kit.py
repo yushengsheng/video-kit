@@ -18,7 +18,7 @@ def run(args,cwd):
 
 
 def mode_path(name):
-    registry=json.loads((ROOT/'modes.json').read_text())
+    registry=json.loads((ROOT/'modes.json').read_text(encoding='utf-8'))
     if name not in registry:raise ValueError(f'未实现的模式：{name}；可用模式：'+', '.join(registry))
     path=(ROOT/registry[name]['directory']).resolve()
     if not path.is_relative_to(ROOT/'modes'):raise ValueError('模式目录越界')
@@ -32,7 +32,7 @@ def python_for(mode):
 
 
 def download_assets(mode):
-    for item in json.loads((mode/'assets.json').read_text()):
+    for item in json.loads((mode/'assets.json').read_text(encoding='utf-8')):
         target=(mode/'public'/item['destination']).resolve()
         if not target.is_relative_to(mode/'public'):raise ValueError('素材目录越界')
         target.parent.mkdir(parents=True,exist_ok=True)
@@ -47,7 +47,7 @@ def download_assets(mode):
             if hashlib.sha256(temporary.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('素材校验失败：'+item['name'])
             temporary.replace(target)
         finally:temporary.unlink(missing_ok=True)
-    for item in json.loads((mode/'licenses.json').read_text()):
+    for item in json.loads((mode/'licenses.json').read_text(encoding='utf-8')):
         destination=mode/'public'/item['destination'];destination.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(ROOT/'licenses'/item['source'],destination)
 
@@ -68,7 +68,7 @@ def setup(mode):
 
 
 def configuration(mode):
-    return next(value for value in json.loads((ROOT/'modes.json').read_text()).values() if (ROOT/value['directory']).resolve()==mode)
+    return next(value for value in json.loads((ROOT/'modes.json').read_text(encoding='utf-8')).values() if (ROOT/value['directory']).resolve()==mode)
 
 
 def cli_for(mode):
@@ -78,8 +78,8 @@ def cli_for(mode):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['list','setup','prepare','render','verify','check','install-comfy']);p.add_argument('mode',nargs='?',default='handdraw');a,remaining=p.parse_known_args()
-    if a.action=='list':print((ROOT/'modes.json').read_text());return
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['list','setup','prepare','render','verify','check','install-comfy','voice']);p.add_argument('mode',nargs='?',default='handdraw');a,remaining=p.parse_known_args()
+    if a.action=='list':print((ROOT/'modes.json').read_text(encoding='utf-8'));return
     mode=mode_path(a.mode)
     if a.action=='setup':
         if remaining:p.error('setup 不接受额外参数')

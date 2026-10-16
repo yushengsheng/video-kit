@@ -72,6 +72,7 @@
     "paper_file": "public/handdraw-moon-v1/paper.jpg"
   },
   "voice": {
+    "named_presets": "明确指定“玄骨”等命名音色时，先读 voices/README.md 和 voices/presets.json；使用 tools/kit.py voice handdraw 查询并调用本地预设。显式指定优先于本机默认音色；资料缺失不静默替换。",
     "provider": "Microsoft Edge online TTS",
     "name": "zh-CN-XiaoyiNeural",
     "rate": "-12%",

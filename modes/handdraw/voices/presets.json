@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "presets": [
+    {
+      "id": "xuangu-v1",
+      "label": "玄骨",
+      "aliases": ["玄骨上人", "萧诧", "xuangu", "xiaocha-reference-v1"],
+      "provider": "local-qwen3-tts",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+      "model_revision": "fd4b254389122332181a7c3db7f27e918eec64e3",
+      "reference_sha256": "084f448dd40f26431c209d040b0dbb7b28390a4695b7af8f9aa30bb089ce56f5",
+      "reference_text_sha256": "7fe8c197d44fc8dfedbc9c9e3bbb46e2d19b2314146d72e33c9c800021cb10f0",
+      "language": "Chinese",
+      "seed": 20261016,
+      "temperature": 0.8,
+      "top_p": 0.95,
+      "delivery_tempo": 0.9,
+      "disclosure": "依据用户提供的玄骨角色片段合成的参考音色，非原演员录音；相似度与自然度以实际试听为准。",
+      "media_policy": "代码、别名、参数和参考身份随Git同步；参考录音、模型与个人配置保存在忽略的projects目录。"
+    }
+  ]
+}

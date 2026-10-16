@@ -12,6 +12,8 @@ def run(args):subprocess.run([str(x) for x in args],cwd=ROOT,check=True)
 
 
 def main():
+    if len(sys.argv)>1 and sys.argv[1]=='voice':
+        run([sys.executable,'scripts/voice_profiles.py',*sys.argv[2:]]);return
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['initialize','prepare','render','verify','check','install-comfy']);p.add_argument('--example',choices=['moon','goji','comic','inkred'],default='moon');p.add_argument('--offline',action='store_true');p.add_argument('--preview',action='store_true');p.add_argument('--comfy-directory',type=Path);p.add_argument('--update',action='store_true');a=p.parse_args()
     py=sys.executable
     if a.action=='initialize':run([py,'scripts/examples.py','initialize']);return

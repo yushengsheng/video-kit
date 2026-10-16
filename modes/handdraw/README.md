@@ -13,6 +13,10 @@
 
 通过仓库根目录 `python3 tools/kit.py prepare handdraw --example 名称` 生成本机旁白和真实时间轴，再用 `render`／`verify`。`--preview` 导出首镜720p，无此参数导出完整1080p。
 
+## 命名音色
+
+“用玄骨配音”对应共享预设 `voices/presets.json` 的 `xuangu-v1`。先用 `python3 tools/kit.py voice handdraw list` 检查本机是否就绪，再调用生成新稿；具体接口、独立运行环境和迁移方法见 [voices/README.md](voices/README.md)。明确指定的音色优先于个人默认值，未指定时不改变原默认音色。
+
 ## 输入、运行数据与作品
 
 - `examples/`：共享的原始示例输入、说明与参考镜头时序，不含音频。
